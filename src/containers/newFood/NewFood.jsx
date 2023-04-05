@@ -10,8 +10,10 @@ import './newFood.css'
 const Categorie = ({ id, name, allowed, currentFood, remove, add }) => {
   return (
     <div className="categorieContainer">
-      <span>{name}: <i>{currentFood?.[id] ?? '0'}</i></span>
-      <span className="avalaible">Disponibles: {isNaN(allowed) ? '' : allowed ?? ''} </span>
+      <div className="nameContainer">
+        <span className="name">{name}: <i>{currentFood?.[id] ?? '0'}</i></span>
+        <span className="avalaible">Disponibles: {isNaN(allowed) ? '' : allowed ?? ''} </span>
+      </div>
       <div className="buttons">
       <IconButton aria-label="delete" size="large">
         <Remove className="remove" onClick={ () => remove(id) } />
@@ -86,7 +88,7 @@ const NewFood = ({
       </div>
       <div className="actions">
       <ButtonGroup className="actionButtons" size="large" aria-label="large button group">
-        <Button className="cancelButton" onClick={() => changeScreen('main')}>Cancelar</Button>
+        <Button className="cancelButton" onClick={() => changeScreen('main')}>Atrás</Button>
         <Button className="addButton" onClick={() => _addNewFood(currentFood)}>Agregar</Button>
       </ButtonGroup>
       </div>

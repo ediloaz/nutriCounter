@@ -20,15 +20,15 @@
     margin-top: 10px;
 }
 
-.categories {
+.Summary .categories {
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
-    flex-flow: wrap
+    justify-content: space-evenly;
 }
 
-.categorieContainer {
+.Summary .categorieContainer {
     width: 100%;
     display: flex;
     justify-content: center;

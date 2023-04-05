@@ -6,26 +6,31 @@
     justify-content: center;
     align-items: center;
     background: #1D3752;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-weight: bolder;
     color: white;
 }
 
-.categories {
+.NewFood .categories {
     height: 100%;
     width: 100%;
     padding-top: 20px;
     display: flex;
     flex-direction: column;
-    flex-flow: wrap
+    justify-content: space-evenly;
+    margin-left: 30px;
 }
 
-.categorieContainer {
+.NewFood .categorieContainer {
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
+    flex-direction: row;
+}
+
+.categorieContainer .nameContainer .name{
+    display: block;
 }
 
 .categorieContainer .avalaible{
