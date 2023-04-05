@@ -1,4 +1,4 @@
-.NewFood {
+.Summary {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -9,6 +9,15 @@
     font-size: 2.5rem;
     font-weight: bolder;
     color: white;
+}
+
+.actionButtons .backButton {
+    width: 100%;
+}
+
+.LinearProgress {
+    width: 90%;
+    margin-top: 10px;
 }
 
 .categories {
@@ -27,17 +36,6 @@
     flex-direction: column;
 }
 
-.categorieContainer .buttons {
-    width: 50%;
-    margin-top: 8px;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.avalaible {
-    font-size: 14px;
-}
-
 .actions {
     margin-bottom: 20px;
 }
@@ -49,8 +47,4 @@
 .actionButtons {
     width: calc(100% - 40px);
     margin: 0 20px;
-}
-
-.actionButtons .addButton {
-    width: 100%;
 }

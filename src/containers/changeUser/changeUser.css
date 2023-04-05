@@ -1,0 +1,37 @@
+.ChangeUser {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #1D3752;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: white;
+}
+
+.users {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-right: 20px;
+    height: fit-content;
+}
+
+.userContainer svg {
+    margin-bottom: 10px;
+}
+
+.actionButtons .backButton {
+    width: 100%;
+}

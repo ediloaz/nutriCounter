@@ -1,37 +1,81 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+
+import Firebase from './firebase'
 
 import Main from './containers/main/Main'
 import NewFood from './containers/newFood/NewFood'
-import Summary from './containers/main/Main'
+import Summary from './containers/summary/Summary'
+import ChangeUser from './containers/changeUser/ChangeUser'
+
+import { createDailyIfNotExists, addNewFood } from './helpers/firebase'
+import { getNameCurrentDaily } from './helpers/daily'
 
 import './App.css';
 
-function App() {
-  const [screen, setScreen] = useState('main')
+const DEFAULT_USER = 'eddie'
 
+function App() {
+  const { db, getUsers, getDaily, getPlanns } = Firebase()
+
+  const [screen, setScreen] = useState('main')
+  const [user, setUser] = useState()
+  const [plann, setPlann] = useState()
+  const [daily, setDaily] = useState()
+  
   const changeScreen = (newScreenName) => setScreen(newScreenName)
 
-  const add = (categorieId) => console.log('add ', categorieId)
-  const remove = (categorieId) => console.log('remove ', categorieId)
+  const changeUser = (newUser, lastPlann) => {
+    const dailyName = getNameCurrentDaily(newUser)
+    setUser(newUser)
+    setDaily(dailyName)
+    window.localStorage.setItem('user', newUser)
 
-  const addNewFood = (food) => console.log('add new food ', food)
+    createDailyIfNotExists(db, getDaily, dailyName)
+    
+    // eslint-disable-next-line no-console
+    console.log('	🎮 lastPlann', lastPlann)
+    
+    if (lastPlann) setPlann(lastPlann)
+    else {
+      const user = getUsers(newUser)
+      user.then((data) => {
+        setPlann(data?.lastPlann)
+      })
+    }
+  }
+
+  const _addNewFood = (food) => addNewFood(db, food, daily)
+
+  useEffect(() => {
+    const user = window.localStorage.getItem('user') || DEFAULT_USER
+
+    window.localStorage.setItem('user', user)
+    
+    changeUser(user || DEFAULT_USER)
+  }, [])
 
   const props = {
-    add,
-    remove,
+    db,
+    user,
+    daily,
+    plann,
     screen,
-    setScreen,
-    addNewFood,
+
+    // functions
+    addNewFood: _addNewFood,
+    changeUser,
     changeScreen,
+
+    // firebase fuctions
+    getUsers,
+    getDaily,
+    getPlanns,
   }
 
   if (screen === 'newFood') return <NewFood {...props} />
-  
   else if (screen === 'summary') return <Summary {...props} />
-
-    return (
-    <Main {...props} />
-  );
+  else if (screen === 'changeUser') return <ChangeUser {...props} />
+  return <Main {...props} />
 }
 
 export default App;

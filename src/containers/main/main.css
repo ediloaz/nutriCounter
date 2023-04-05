@@ -30,6 +30,7 @@
 .bottomButton {
     color: #F7C232;
     font-size: 1.5rem;
+    margin: 20px 0;
 }
 
 .bottomButton .label {
