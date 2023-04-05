@@ -1,15 +1,8 @@
 import { doc, setDoc, updateDoc } from "firebase/firestore";
 
-const DAILY_COLLECTION = 'daily'
+import { EMPTY_DAILY } from "../constants/daily";
 
-const EMPTY_DAILY = {
-  protein: 0,
-  carb: 0,
-  dairy: 0,
-  fat: 0,
-  fruit: 0,
-  vegetable: 0,
-}
+const DAILY_COLLECTION = 'daily'
 
 export const addNewFood = async (db, food, daily) => {
   const ref = doc(db, DAILY_COLLECTION, daily);

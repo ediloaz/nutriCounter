@@ -4,10 +4,14 @@ import { Button, ButtonGroup, IconButton } from '@mui/material';
 import { RemoveCircleOutline as Remove, AddCircleOutline as Add } from '@mui/icons-material';
 
 import { CATEGORIES } from '../../constants/categories';
+import { EMPTY_DAILY } from "../../constants/daily";
 
 import './newFood.css'
 
 const Categorie = ({ id, name, allowed, currentFood, remove, add }) => {
+  const disabledRemove = false && currentFood?.[id] <= 0
+  const disabledAdd = false && currentFood?.[id] >= allowed
+
   return (
     <div className="categorieContainer">
       <div className="nameContainer">
@@ -15,11 +19,11 @@ const Categorie = ({ id, name, allowed, currentFood, remove, add }) => {
         <span className="avalaible">Disponibles: {isNaN(allowed) ? '' : allowed ?? ''} </span>
       </div>
       <div className="buttons">
-      <IconButton aria-label="delete" size="large">
+      <IconButton disabled={disabledRemove} aria-label="delete" size="large">
         <Remove className="remove" onClick={ () => remove(id) } />
       </IconButton>
-      <IconButton aria-label="add" size="large">
-        <Add onClick={ () => add(id) } />
+      <IconButton disabled={disabledAdd} aria-label="add" size="large">
+        <Add onClick={ () => add(id) }  disabled={disabledAdd}/>
       </IconButton>
       </div>
     </div>
@@ -36,7 +40,7 @@ const NewFood = ({
 }) => {
   const [plannData, setPlannData] = useState({})
   const [dailyData, setDailyData] = useState({})
-  const [currentFood, setCurrentFood] = useState({})
+  const [currentFood, setCurrentFood] = useState(EMPTY_DAILY)
 
   const add = (id) => setCurrentFood({...currentFood, [id]: (currentFood?.[id] || 0) + 1})
   const remove = (id) => setCurrentFood({...currentFood, [id]: (currentFood?.[id] || 0) - 1})
@@ -61,11 +65,6 @@ const NewFood = ({
     Object.keys(currentFood).forEach((key) => {
       newFood[key] = dailyData[key] + currentFood[key]
     })
-
-    
-    // eslint-disable-next-line no-console
-    console.log('	🎮 newFood', newFood)
-    
 
     addNewFood(newFood)
     changeScreen('main')

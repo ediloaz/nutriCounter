@@ -45,10 +45,6 @@ const Summary = ({
     <div className="Summary">
       <div className="categories">
         {CATEGORIES.map((categorie) => 
-        
-        // eslint-disable-next-line no-console
-        console.log('	🎮 categorie', categorie, plannData, dailyData) ||
-        
           <Categorie 
           id={categorie?.id} 
           key={categorie?.id} 
