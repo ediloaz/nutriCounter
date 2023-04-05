@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { Button, ButtonGroup } from '@mui/material';
+import { Button, ButtonGroup, IconButton } from '@mui/material';
 import { RemoveCircleOutline as Remove, AddCircleOutline as Add } from '@mui/icons-material';
 
 import { CATEGORIES } from '../../constants/categories';
@@ -13,8 +13,12 @@ const Categorie = ({ id, name, allowed, currentFood, remove, add }) => {
       <span>{name}: <i>{currentFood?.[id] ?? '0'}</i></span>
       <span className="avalaible">Disponibles: {isNaN(allowed) ? '' : allowed ?? ''} </span>
       <div className="buttons">
-        <Remove onClick={ () => remove(id) } />
+      <IconButton aria-label="delete" size="large">
+        <Remove className="remove" onClick={ () => remove(id) } />
+      </IconButton>
+      <IconButton aria-label="add" size="large">
         <Add onClick={ () => add(id) } />
+      </IconButton>
       </div>
     </div>
   )

@@ -14,6 +14,7 @@
 .categories {
     height: 100%;
     width: 100%;
+    padding-top: 20px;
     display: flex;
     flex-direction: column;
     flex-flow: wrap
@@ -27,11 +28,19 @@
     flex-direction: column;
 }
 
+.categorieContainer .avalaible{
+    color: grey;
+}
+
 .categorieContainer .buttons {
     width: 50%;
     margin-top: 8px;
     display: flex;
     justify-content: space-evenly;
+}
+
+.categorieContainer .remove {
+    color: pink;
 }
 
 .avalaible {
@@ -44,6 +53,7 @@
 
 .actions, .actionButtons {
     width: 100%;
+    font-size: 1.3rem;
 }
 
 .actionButtons {

@@ -24,12 +24,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-right: 20px;
+    margin-right: 20px !important;
     height: fit-content;
+}
+
+.userContainer span {
+    font-size: 1.5rem;
 }
 
 .userContainer svg {
     margin-bottom: 10px;
+    font-size: 3.5rem;
 }
 
 .actionButtons .backButton {

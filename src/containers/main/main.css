@@ -40,3 +40,8 @@
 .Main svg {
     margin-right: 8px;
 }
+
+.MuiButtonBase-root {
+    color: inherit !important;
+    font-size: inherit !important;
+}

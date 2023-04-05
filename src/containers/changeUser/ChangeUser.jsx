@@ -9,8 +9,8 @@ const User = ({ id, icon, name, lastPlann, changeUser }) => {
   
   return (
     <Button className="userContainer" onClick={() => changeUser(id, lastPlann)}>
-      {icon === 'Face2' && <Face2 />}
-      {icon === 'Face4' && <Face4 />}
+      {icon === 'Face2' && <Face2 size="large" />}
+      {icon === 'Face4' && <Face4 size="large" />}
       <span>Seleccionar a {name}</span>
     </Button>
   )
