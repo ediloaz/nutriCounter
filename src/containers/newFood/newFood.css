@@ -1,0 +1,82 @@
+.NewFood {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #1D3752;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: white;
+}
+
+.categories {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-flow: wrap
+}
+
+.categorieContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.categorieContainer .buttons {
+    width: 50%;
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.actions {
+    margin-bottom: 20px;
+}
+
+.actions, .actionButtons {
+    width: 100%;
+}
+
+.actionButtons {
+    width: calc(100% - 40px);
+    margin: 0 20px;
+}
+
+.actionButtons .addButton {
+    width: 100%;
+}
+
+
+.bigButton {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bigButton.new {
+    background: #214D72;
+}
+
+.bigButton.summary {
+    background: #2C7695;
+}
+
+.bottomButton {
+    color: #F7C232;
+    font-size: 1.5rem;
+}
+
+.bottomButton .label {
+    display: flex;
+}
+
+.Main svg {
+    margin-right: 8px;
+}
