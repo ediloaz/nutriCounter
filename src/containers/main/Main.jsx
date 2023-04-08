@@ -10,10 +10,13 @@ function Main({
   return (
     <div className="Main">
       <Button className="bigButton new" onClick={() => changeScreen('newFood')}>
-        <span className="label">🥣 Nueva comida</span>
+        <span className="label">🥣 + Comida</span>
+      </Button>
+      <Button className="bigButton new" onClick={() => alert("Pronto, mi amoris. No comas ansias!")}>
+        <span className="label">💦 + Agüita</span>
       </Button>
       <Button className="bigButton summary" onClick={() => changeScreen('summary')}>
-        <span className="label">📅 Resumen de hoy</span>
+        <span className="label">📅 Hoy</span>
       </Button>
       <div className="bottomButton changeUser" onClick={() => changeScreen('changeUser')}>
         <Button className="label"><SupervisedUserCircle />Cambiar de Usuario ({user})</Button>

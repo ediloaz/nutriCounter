@@ -57,6 +57,7 @@ const Summary = ({
       <div className="actions">
       <ButtonGroup className="actionButtons" size="large" aria-label="large button group">
         <Button className="backButton" onClick={() => changeScreen('main')}>Atrás</Button>
+        <Button className="addButton" onClick={() => changeScreen('history')}>Historial</Button>
       </ButtonGroup>
       </div>
     </div>

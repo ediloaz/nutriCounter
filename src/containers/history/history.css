@@ -1,9 +1,9 @@
-.Summary {
+.History {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     background: #1D3752;
     font-size: 2.5rem;
@@ -15,25 +15,34 @@
     width: 100%;
 }
 
-.LinearProgress {
-    width: 90%;
-    margin-top: 10px;
+.History .title {
+    margin: 20px 0 10px;
 }
 
-.Summary .categories {
+.History .list {
+    width: 100%;
+    font-size: 1rem;
+}
+
+.History .list .hour {
+    font-weight: 700;
+}
+
+.History .itemContainer {
+    margin: 20px 10px;
+    width: calc(100% - 20px);
+}
+
+.History .categories {
     height: 100%;
     width: 100%;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    flex-flow: wrap;
+    justify-content: flex-start;
 }
 
-.Summary .categorieContainer {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+.History .categories .category {
+    margin-right: 10px;
 }
 
 .actions {

@@ -5,6 +5,7 @@ import Firebase from './firebase'
 import Main from './containers/main/Main'
 import NewFood from './containers/newFood/NewFood'
 import Summary from './containers/summary/Summary'
+import History from './containers/history/History'
 import ChangeUser from './containers/changeUser/ChangeUser'
 
 import { createDailyIfNotExists, addNewFood } from './helpers/firebase'
@@ -75,6 +76,7 @@ function App() {
   if (screen === 'newFood') return <NewFood {...props} />
   else if (screen === 'summary') return <Summary {...props} />
   else if (screen === 'changeUser') return <ChangeUser {...props} />
+  else if (screen === 'history') return <History {...props} />
   return <Main {...props} />
 }
 

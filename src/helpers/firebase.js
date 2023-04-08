@@ -1,13 +1,30 @@
+import moment from "moment";
 import { doc, setDoc, updateDoc } from "firebase/firestore";
 
 import { EMPTY_DAILY } from "../constants/daily";
 
 const DAILY_COLLECTION = 'daily'
 
-export const addNewFood = async (db, food, daily) => {
-  const ref = doc(db, DAILY_COLLECTION, daily);
+export const addNewFood = async (db, { daily, current, history }, dailyName, getDaily) => {
+  const ref = doc(db, DAILY_COLLECTION, dailyName);
 
-  await updateDoc(ref, food);
+  const hour = moment(new Date()).format('h:mm a');
+
+  console.log('daily', hour, daily, current)
+
+  const newDaily = {
+    ...daily,
+    history: [
+      ...history,
+      {
+        hour,
+        ...current,
+      }
+    ]
+  }
+
+
+  await updateDoc(ref, newDaily);
 }
 
 const createEmptyDaily = async (db, dailyName) => {
