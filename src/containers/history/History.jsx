@@ -3,13 +3,14 @@ import { useEffect, useState } from 'react'
 import { Button, ButtonGroup } from '@mui/material'
 
 import { getCategoryNameById } from '../../helpers/categories'
+import { FOOD_TIMES } from "../../constants/foodTimes";
 
 import './history.css'
 
-const Item = ({ hour, categories }) => {
+const Item = ({ hour, foodTime, categories }) => {
   return (
     <div className="itemContainer">
-      <span className="hour">{hour}</span>
+      <span className="hour">{hour}{foodTime ? `: ${FOOD_TIMES?.[foodTime]?.name ?? 'Desconocido'}` : ''}</span>
       <div className="categories">
         {Object.keys(categories).map((category) =>
           Boolean(categories?.[category]) && <span className="category">{getCategoryNameById(category)}: {categories?.[category]}</span>
@@ -46,6 +47,7 @@ const History = ({
           <Item
             key={item?.hour}
             hour={item?.hour}
+            foodTime={item?.foodTime}
             categories={{
               protein: item?.protein,
               carb: item?.carb,

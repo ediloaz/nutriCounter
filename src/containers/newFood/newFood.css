@@ -29,6 +29,18 @@
     flex-direction: row;
 }
 
+.NewFood .moreOptions .foodTimeButton {
+    font-size: 0.8rem !important;
+    transition: all 0.3s ease both;
+}
+
+.NewFood .moreOptions .foodTimeButton.selected {
+    color: #1D3752 !important;
+    background: white;
+    font-weight: 600;
+    transition: all 0.3s ease both;
+}
+
 .categorieContainer .nameContainer .name{
     display: block;
 }

@@ -5,6 +5,7 @@ import { RemoveCircleOutline as Remove, AddCircleOutline as Add } from '@mui/ico
 
 import { CATEGORIES } from '../../constants/categories';
 import { EMPTY_DAILY } from "../../constants/daily";
+import { FOOD_TIMES } from "../../constants/foodTimes";
 
 import './newFood.css'
 
@@ -41,6 +42,7 @@ const NewFood = ({
   const [plannData, setPlannData] = useState({})
   const [dailyData, setDailyData] = useState({})
   const [currentFood, setCurrentFood] = useState(EMPTY_DAILY)
+  const [foodTime, setFoodTime] = useState(FOOD_TIMES?.snack)
 
   const add = (id) => setCurrentFood({...currentFood, [id]: (currentFood?.[id] || 0) + 1})
   const remove = (id) => setCurrentFood({...currentFood, [id]: (currentFood?.[id] || 0) - 1})
@@ -66,10 +68,17 @@ const NewFood = ({
       newFood[key] = dailyData[key] + currentFood[key]
     })
 
-    addNewFood({ daily: newFood, current: currentFood, history: dailyData?.history })
+    const newCurrent = {
+      ...currentFood,
+      foodTime,
+    }
+
+    addNewFood({ daily: newFood, current: newCurrent, history: dailyData?.history })
     changeScreen('main')
   }
-  
+
+  const onChangeFoodTime = (id) => setFoodTime(id)
+
   return (
     <div className="NewFood">
       <div className="categories">
@@ -84,6 +93,20 @@ const NewFood = ({
           currentFood={currentFood}
           />
           )}
+      </div>
+      <div className="moreOptions">
+        <ButtonGroup variant="text" aria-label="text button group">
+          {Object.values(FOOD_TIMES).map(({ id, name }) => (
+            <Button
+              key={id}
+              className={`foodTimeButton ${id === foodTime ? 'selected' : ''}`}
+              onClick={() => onChangeFoodTime(id)}
+            >
+              {name}
+            </Button>
+          ))}
+        </ButtonGroup>  
+
       </div>
       <div className="actions">
       <ButtonGroup className="actionButtons" size="large" aria-label="large button group">
