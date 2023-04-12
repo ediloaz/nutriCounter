@@ -43,6 +43,7 @@ const History = ({
     <div className="History">
       <span className='title'>Historial</span>
       <div className="list">
+      {/* TODO: IMPLEMENT TIME LINE FROM HERE: https://mui.com/material-ui/react-timeline/ USING Customization title */}
         {dailyData?.history?.map((item) => 
           <Item
             key={item?.hour}
