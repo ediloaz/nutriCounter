@@ -5,7 +5,7 @@ import { EMPTY_DAILY } from "../constants/daily";
 
 const DAILY_COLLECTION = 'daily'
 
-export const addNewFood = async (db, { daily, current, history }, dailyName, getDaily) => {
+export const addNewFood = async (db, { daily, current, history }, dailyName) => {
   const ref = doc(db, DAILY_COLLECTION, dailyName);
 
   const hour = moment(new Date()).format('h:mm a');

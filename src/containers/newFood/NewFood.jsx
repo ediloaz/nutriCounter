@@ -73,7 +73,7 @@ const NewFood = ({
       foodTime,
     }
 
-    addNewFood({ daily: newFood, current: newCurrent, history: dailyData?.history })
+    addNewFood({ daily: newFood, current: newCurrent, history: dailyData?.history || [] })
     changeScreen('main')
   }
 
