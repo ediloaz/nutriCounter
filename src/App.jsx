@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import Firebase from './firebase'
 
 import Main from './containers/main/Main'
+import Water from './containers/water/Water'
 import NewFood from './containers/newFood/NewFood'
 import Summary from './containers/summary/Summary'
 import History from './containers/history/History'
@@ -77,6 +78,7 @@ function App() {
   else if (screen === 'summary') return <Summary {...props} />
   else if (screen === 'changeUser') return <ChangeUser {...props} />
   else if (screen === 'history') return <History {...props} />
+  else if (screen === 'water') return <Water {...props} />
   return <Main {...props} />
 }
 

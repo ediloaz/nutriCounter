@@ -12,7 +12,7 @@ function Main({
       <Button className="bigButton new" onClick={() => changeScreen('newFood')}>
         <span className="label">🥣 + Comida</span>
       </Button>
-      <Button className="bigButton new" onClick={() => alert("Pronto, mi amoris. No comas ansias!")}>
+      <Button className="bigButton new" onClick={() => changeScreen('water')}>
         <span className="label">💦 + Agüita</span>
       </Button>
       <Button className="bigButton summary" onClick={() => changeScreen('summary')}>
