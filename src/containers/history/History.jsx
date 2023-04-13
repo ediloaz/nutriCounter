@@ -77,7 +77,7 @@ const History = ({
     <div className="History">
       <span className='title'>Historial</span>
       <Typography component='span' variant='body1'>
-        Recuerda que sin importar que <b>siempre sos suficiente</b> ❤️
+        Recuerda que sin importar que, <b>siempre sos suficiente</b> ❤️
       </Typography>
       <Timeline position="alternate" className="list">
         {dailyData?.history?.map((item, i) => {
