@@ -25,11 +25,11 @@
 }
 
 .History .list .hour {
-    font-weight: 700;
+    font-style: italic;
 }
 
 .History .itemContainer {
-    margin: 20px 10px;
+    min-height: 140px;
     width: calc(100% - 20px);
 }
 
@@ -37,8 +37,13 @@
     height: 100%;
     width: 100%;
     display: flex;
-    flex-flow: wrap;
+    flex-flow: column;
     justify-content: flex-start;
+    color: #AAA;
+}
+
+.History .categories.odd {
+    justify-content: flex-end;
 }
 
 .History .categories .category {
