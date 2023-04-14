@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react'
 import { Button, ButtonGroup, IconButton } from '@mui/material';
 import { RemoveCircleOutline as Remove, AddCircleOutline as Add } from '@mui/icons-material';
 
+import USERS from "../../constants/users"
 import { CATEGORIES } from '../../constants/categories';
 import { EMPTY_DAILY } from "../../constants/daily";
 import { FOOD_TIMES } from "../../constants/foodTimes";
@@ -12,19 +13,21 @@ import './newFood.css'
 const Categorie = ({ id, name, allowed, currentFood, remove, add }) => {
   const disabledRemove = false && currentFood?.[id] <= 0
   const disabledAdd = false && currentFood?.[id] >= allowed
+  const currentQuantity = currentFood?.[id] ?? '0'
+  
 
   return (
     <div className="categorieContainer">
       <div className="nameContainer">
-        <span className="name">{name}: <i>{currentFood?.[id] ?? '0'}</i></span>
+        <span className="name">{name}: <i>{currentQuantity}</i></span>
         <span className="avalaible">Disponibles: {isNaN(allowed) ? '' : allowed ?? ''} </span>
       </div>
       <div className="buttons">
       <IconButton disabled={disabledRemove} aria-label="delete" size="large">
-        <Remove className="remove" onClick={ () => remove(id) } />
+        <Remove className="remove" onClick={ () => remove(id) } fontSize='large' />
       </IconButton>
       <IconButton disabled={disabledAdd} aria-label="add" size="large">
-        <Add onClick={ () => add(id) }  disabled={disabledAdd}/>
+        <Add onClick={ () => add(id) }  disabled={disabledAdd} fontSize='large' />
       </IconButton>
       </div>
     </div>
@@ -32,6 +35,7 @@ const Categorie = ({ id, name, allowed, currentFood, remove, add }) => {
 }
 
 const NewFood = ({
+  user,
   plann,
   daily,
   getDaily,
@@ -42,10 +46,10 @@ const NewFood = ({
   const [plannData, setPlannData] = useState({})
   const [dailyData, setDailyData] = useState({})
   const [currentFood, setCurrentFood] = useState(EMPTY_DAILY)
-  const [foodTime, setFoodTime] = useState(FOOD_TIMES?.snack)
+  const [foodTime, setFoodTime] = useState(FOOD_TIMES?.snack?.id)
 
-  const add = (id) => setCurrentFood({...currentFood, [id]: (currentFood?.[id] || 0) + 1})
-  const remove = (id) => setCurrentFood({...currentFood, [id]: (currentFood?.[id] || 0) - 1})
+  const add = (id) => setCurrentFood({...currentFood, [id]: (currentFood?.[id] || 0) + 0.5})
+  const remove = (id) => setCurrentFood({...currentFood, [id]: (currentFood?.[id] || 0) - 0.5})
 
   useEffect(() => {
     const plannQuery = getPlanns(plann)
@@ -81,19 +85,7 @@ const NewFood = ({
 
   return (
     <div className="NewFood">
-      <div className="categories">
-        {CATEGORIES.map((categorie) => 
-          <Categorie 
-          add={add} 
-          allowed={plannData?.[categorie?.id] - dailyData?.[categorie?.id]}
-          remove={remove} 
-          id={categorie?.id} 
-          key={categorie?.id} 
-          name={categorie?.name}
-          currentFood={currentFood}
-          />
-          )}
-      </div>
+      <span className='user'>{USERS?.[user]?.completeName}</span>
       <div className="moreOptions">
         <ButtonGroup variant="text" aria-label="text button group">
           {Object.values(FOOD_TIMES).map(({ id, name }) => (
@@ -106,7 +98,19 @@ const NewFood = ({
             </Button>
           ))}
         </ButtonGroup>  
-
+      </div>
+      <div className="categories">
+        {CATEGORIES.map((categorie) => 
+          <Categorie 
+          add={add} 
+          allowed={plannData?.[categorie?.id] - dailyData?.[categorie?.id]}
+          remove={remove} 
+          id={categorie?.id} 
+          key={categorie?.id} 
+          name={categorie?.name}
+          currentFood={currentFood}
+          />
+          )}
       </div>
       <div className="actions">
       <ButtonGroup className="actionButtons" size="large" aria-label="large button group">
