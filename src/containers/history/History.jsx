@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react'
 
 import { Typography, Button, ButtonGroup } from '@mui/material'
 import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineOppositeContent, TimelineDot } from '@mui/lab'
-import { FreeBreakfast, RiceBowl, DinnerDining, BakeryDining, Fastfood, LaptopMac, Hotel, Repeat } from '@mui/icons-material';
 
 import { getCategoryNameById } from '../../helpers/categories'
 import { FOOD_TIMES } from "../../constants/foodTimes";
@@ -13,7 +12,6 @@ const FLAT_COLORS = ['#16a085', '#27ae60', '#2980b9', '#8e44ad', '#2c3e50', '#f3
 
 
 const HistoryTimelineItem = ({ flatColor, nextFlatColor, odd, hour, foodTime, categories, isFinal }) => {
-  const foodTimeId = FOOD_TIMES?.[foodTime]?.id
   const topLineColor = flatColor
   const bottomLineColor = nextFlatColor
 
@@ -28,11 +26,7 @@ const HistoryTimelineItem = ({ flatColor, nextFlatColor, odd, hour, foodTime, ca
         <TimelineSeparator>
           <TimelineConnector sx={{ bgcolor: topLineColor }} />
           <TimelineDot sx={{ bgcolor: topLineColor }}>
-            { foodTimeId === FOOD_TIMES?.breakfast?.id && <FreeBreakfast /> }
-            { foodTimeId === FOOD_TIMES?.lunch?.id && <RiceBowl /> }
-            { foodTimeId === FOOD_TIMES?.dinner?.id && <DinnerDining /> }
-            { foodTimeId === FOOD_TIMES?.snack?.id && <BakeryDining /> }
-            { foodTimeId === FOOD_TIMES?.other?.id && <Fastfood /> }
+            {FOOD_TIMES?.[foodTime]?.icon()}
           </TimelineDot >
           <TimelineConnector sx={{ bgcolor: isFinal ? 'transparent' : bottomLineColor }} />
         </TimelineSeparator>
