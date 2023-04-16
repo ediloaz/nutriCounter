@@ -41,7 +41,7 @@ const ChangeUser = ({
 
   return (
     <div className="ChangeUser">
-      <BackButton changeScreen={changeScreen} screen="summary" />
+      <BackButton changeScreen={changeScreen} screen="main" />
       <div className="users">
         {users.map((user) =>
           <User

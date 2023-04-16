@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react'
 import { Button, ButtonGroup, IconButton } from '@mui/material';
 import { RemoveCircleOutline as Remove, AddCircleOutline as Add } from '@mui/icons-material';
 
-import BackButton from "../../components/BackButton/BackButton"
-
 import USERS from "../../constants/users"
 import { CATEGORIES } from '../../constants/categories';
 import { EMPTY_DAILY } from "../../constants/daily";
@@ -87,17 +85,15 @@ const NewFood = ({
 
   return (
     <div className="NewFood">
-      <BackButton changeScreen={changeScreen} screen="main" />
       <span className='user'>{USERS?.[user]?.completeName}</span>
       <div className="moreOptions">
         <ButtonGroup variant="text" aria-label="text button group">
-          {Object.values(FOOD_TIMES).map(({ id, name, icon }) => (
+          {Object.values(FOOD_TIMES).map(({ id, name }) => (
             <Button
               key={id}
               className={`foodTimeButton ${id === foodTime ? 'selected' : ''}`}
               onClick={() => onChangeFoodTime(id)}
             >
-              {/* {icon()} */}
               {name}
             </Button>
           ))}
@@ -118,6 +114,7 @@ const NewFood = ({
       </div>
       <div className="actions">
       <ButtonGroup className="actionButtons" size="large" aria-label="large button group">
+        <Button className="cancelButton" onClick={() => changeScreen('main')}>Atrás</Button>
         <Button className="addButton" onClick={() => _addNewFood(currentFood)}>Agregar</Button>
       </ButtonGroup>
       </div>

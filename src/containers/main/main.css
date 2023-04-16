@@ -1,14 +1,16 @@
 .Main {
     width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #1D3752;
     font-size: 2.5rem;
     font-weight: 400;
     color: white;
+}
+
+.Main .BottomBackground {
+    width: 100vw;
 }
 
 .bigButton {
@@ -19,26 +21,67 @@
     justify-content: center;
 }
 
-.bigButton.new {
-    background: #214D72;
+.Main button.MuiButtonBase-root.bottomButton {
+    width: fit-content;
+    max-width: 100% !important;
+    font-size: 16px !important;
+    margin: 20px auto !important;
+    z-index: 1;
 }
 
-.bigButton.summary {
-    background: #2C7695;
+.Main button.MuiButtonBase-root.bottomButton span {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100% !important;
+    color: white !important;
 }
 
-.bottomButton {
-    color: #F7C232;
-    font-size: 1rem;
-    margin: 20px 0;
+.Main button.MuiButtonBase-root.bottomButton.morning {
+    background-color: #B2AF77 !important;
 }
 
-.bottomButton .label {
+.Main button.MuiButtonBase-root.bottomButton.afternoon {
+    background-color: #6D3D15 !important;
+}
+
+.Main button.MuiButtonBase-root.bottomButton.night {
+    background-color: #0B1129 !important;
+}
+
+.Main .cardActionContainer {
+    margin: 20px;
+    z-index: 1;
+}
+
+.Main .CardAction {
+    height: 250px;
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.2);
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.Main .CardAction .emoji {
+    text-align: center;
+    font-size: 70px;
+}
+
+.Main .CardAction .title {
+    text-align: center;
+    font-size: 16px;
 }
 
 .Main svg {
     margin-right: 8px;
+}
+
+.Main .phrase {
+    text-align: center;
+    margin: 10px 20px;
+    margin-bottom: -250px;
+    z-index: 1;
 }
 
 .MuiButtonBase-root {

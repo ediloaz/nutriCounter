@@ -3,40 +3,14 @@ import { useEffect, useState } from 'react'
 import { Button, ButtonGroup, IconButton } from '@mui/material';
 import { RemoveCircleOutline as Remove, AddCircleOutline as Add } from '@mui/icons-material';
 
-import BackButton from "../../components/BackButton/BackButton"
-
 import USERS from "../../constants/users"
 import { CATEGORIES } from '../../constants/categories';
 import { EMPTY_DAILY } from "../../constants/daily";
 import { FOOD_TIMES } from "../../constants/foodTimes";
 
-import './newFood.css'
+import './selectTime.css'
 
-const Categorie = ({ id, name, allowed, currentFood, remove, add }) => {
-  const disabledRemove = false && currentFood?.[id] <= 0
-  const disabledAdd = false && currentFood?.[id] >= allowed
-  const currentQuantity = currentFood?.[id] ?? '0'
-  
-
-  return (
-    <div className="categorieContainer">
-      <div className="nameContainer">
-        <span className="name">{name}: <i>{currentQuantity}</i></span>
-        <span className="avalaible">Disponibles: {isNaN(allowed) ? '' : allowed ?? ''} </span>
-      </div>
-      <div className="buttons">
-      <IconButton disabled={disabledRemove} aria-label="delete" size="large">
-        <Remove className="remove" onClick={ () => remove(id) } fontSize='large' />
-      </IconButton>
-      <IconButton disabled={disabledAdd} aria-label="add" size="large">
-        <Add onClick={ () => add(id) }  disabled={disabledAdd} fontSize='large' />
-      </IconButton>
-      </div>
-    </div>
-  )
-}
-
-const NewFood = ({
+const SelectTime = ({
   user,
   plann,
   daily,
@@ -87,17 +61,15 @@ const NewFood = ({
 
   return (
     <div className="NewFood">
-      <BackButton changeScreen={changeScreen} screen="main" />
       <span className='user'>{USERS?.[user]?.completeName}</span>
       <div className="moreOptions">
         <ButtonGroup variant="text" aria-label="text button group">
-          {Object.values(FOOD_TIMES).map(({ id, name, icon }) => (
+          {Object.values(FOOD_TIMES).map(({ id, name }) => (
             <Button
               key={id}
               className={`foodTimeButton ${id === foodTime ? 'selected' : ''}`}
               onClick={() => onChangeFoodTime(id)}
             >
-              {/* {icon()} */}
               {name}
             </Button>
           ))}
@@ -105,19 +77,20 @@ const NewFood = ({
       </div>
       <div className="categories">
         {CATEGORIES.map((categorie) => 
-          <Categorie 
-          add={add} 
-          allowed={plannData?.[categorie?.id] - dailyData?.[categorie?.id]}
-          remove={remove} 
-          id={categorie?.id} 
-          key={categorie?.id} 
-          name={categorie?.name}
-          currentFood={currentFood}
-          />
+          // <Categorie 
+          // add={add} 
+          // allowed={plannData?.[categorie?.id] - dailyData?.[categorie?.id]}
+          // remove={remove} 
+          // id={categorie?.id} 
+          // key={categorie?.id} 
+          // name={categorie?.name}
+          // currentFood={currentFood}
+          // />
           )}
       </div>
       <div className="actions">
       <ButtonGroup className="actionButtons" size="large" aria-label="large button group">
+        <Button className="cancelButton" onClick={() => changeScreen('main')}>Atrás</Button>
         <Button className="addButton" onClick={() => _addNewFood(currentFood)}>Agregar</Button>
       </ButtonGroup>
       </div>
@@ -125,4 +98,4 @@ const NewFood = ({
   );
 }
 
-export default NewFood
+export default SelectTime
