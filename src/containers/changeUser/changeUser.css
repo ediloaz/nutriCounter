@@ -28,14 +28,10 @@
 }
 
 .userContainer span {
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .userContainer svg {
     margin-bottom: 10px;
     font-size: 3.5rem;
-}
-
-.actionButtons .backButton {
-    width: 100%;
 }

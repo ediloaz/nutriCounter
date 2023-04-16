@@ -11,10 +11,6 @@
     color: white;
 }
 
-.actionButtons .backButton {
-    width: 100%;
-}
-
 .History .title {
     margin: 20px 0 10px;
 }
@@ -50,15 +46,6 @@
     margin-right: 10px;
 }
 
-.actions {
-    margin-bottom: 20px;
-}
-
-.actions, .actionButtons {
-    width: 100%;
-}
-
-.actionButtons {
-    width: calc(100% - 40px);
-    margin: 0 20px;
+.History .prettyPhrase {
+    text-align: center;
 }

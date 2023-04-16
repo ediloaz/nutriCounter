@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 
-import { Typography, Button, ButtonGroup } from '@mui/material'
+import { Typography } from '@mui/material'
 import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineOppositeContent, TimelineDot } from '@mui/lab'
+
+import BackButton from "../../components/BackButton/BackButton"
 
 import { getCategoryNameById } from '../../helpers/categories'
 import { FOOD_TIMES } from "../../constants/foodTimes";
@@ -69,8 +71,9 @@ const History = ({
 
   return (
     <div className="History">
+      <BackButton changeScreen={changeScreen} screen="summary" />
       <span className='title'>Historial</span>
-      <Typography component='span' variant='body1'>
+      <Typography className='prettyPhrase' component='span' variant='body1'>
         Recuerda que sin importar que, <b>siempre sos suficiente</b> ❤️
       </Typography>
       <Timeline position="alternate" className="list">
@@ -99,12 +102,7 @@ const History = ({
           )
         }
           )}
-        </Timeline>
-      <div className="actions">
-      <ButtonGroup className="actionButtons" size="large" aria-label="large button group">
-        <Button className="backButton" onClick={() => changeScreen('summary')}>Atrás</Button>
-      </ButtonGroup>
-      </div>
+      </Timeline>
     </div>
   );
 }

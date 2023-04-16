@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 
 import { Button, ButtonGroup, LinearProgress } from '@mui/material';
 
+import BackButton from "../../components/BackButton/BackButton"
+
 import { CATEGORIES } from '../../constants/categories';
 
 import './summary.css'
@@ -43,6 +45,7 @@ const Summary = ({
 
   return (
     <div className="Summary">
+      <BackButton changeScreen={changeScreen} screen="main" />
       <div className="categories">
         {CATEGORIES.map((categorie) => 
           <Categorie 
@@ -56,7 +59,6 @@ const Summary = ({
       </div>
       <div className="actions">
       <ButtonGroup className="actionButtons" size="large" aria-label="large button group">
-        <Button className="backButton" onClick={() => changeScreen('main')}>Atrás</Button>
         <Button className="addButton" onClick={() => changeScreen('history')}>Historial</Button>
       </ButtonGroup>
       </div>

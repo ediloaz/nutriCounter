@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react'
 
-import { Button, ButtonGroup } from '@mui/material';
+import { Button } from '@mui/material';
 import { Face2, Face4 } from '@mui/icons-material';
+
+import BackButton from "../../components/BackButton/BackButton"
 
 import './changeUser.css'
 
@@ -39,6 +41,7 @@ const ChangeUser = ({
 
   return (
     <div className="ChangeUser">
+      <BackButton changeScreen={changeScreen} screen="summary" />
       <div className="users">
         {users.map((user) =>
           <User
@@ -50,11 +53,6 @@ const ChangeUser = ({
           lastPlann={user?.lastPlann}
           />
           )}
-      </div>
-      <div className="actions">
-      <ButtonGroup className="actionButtons" size="large" aria-label="large button group">
-        <Button className="backButton" onClick={() => changeScreen('main')}>Atrás</Button>
-      </ButtonGroup>
       </div>
     </div>
   );
