@@ -1,6 +1,8 @@
 import { Button } from '@mui/material';
 import { SupervisedUserCircle } from '@mui/icons-material';
 
+// import CircularProgress from '../../components/CircularProgress/CircularProgress';
+
 import './main.css'
 
 function Main({
@@ -9,6 +11,11 @@ function Main({
 }) {
   return (
     <div className="Main">
+      {/* <CircularProgress
+        topText="100"
+        bottomText="calories"
+        className="CaloriesCircularProgress"
+      /> */}
       <Button className="bigButton new" onClick={() => changeScreen('newFood')}>
         <span className="label">🥣 + Comida</span>
       </Button>

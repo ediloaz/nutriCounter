@@ -45,3 +45,13 @@
     color: inherit !important;
     font-size: inherit !important;
 }
+
+.CaloriesCircularProgress .topText {
+    text-align: center;
+    font-size: 50px;
+}
+
+.CaloriesCircularProgress .bottomText {
+    text-align: center;
+    font-size: 14px;
+}

@@ -1,0 +1,14 @@
+.CircularProgress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.CircularProgress .svg {
+    position: absolute;
+}
+
+.CircularProgress .content {
+    display: flex;
+    flex-direction: column;
+}
