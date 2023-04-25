@@ -1,39 +1,33 @@
 import { useEffect, useState } from 'react'
 
-import { Button, ButtonGroup, IconButton } from '@mui/material';
-import { RemoveCircleOutline as Remove, AddCircleOutline as Add } from '@mui/icons-material';
+import { Button, ButtonGroup, IconButton, Typography } from '@mui/material';
+import { 
+  ArrowForwardIos as ArrowNext,
+  ArrowBackIosNew as ArrowBack,
+  AddCircleOutlineRounded as AddCircle,
+  CheckCircleOutlineRounded as CheckCircle,
+
+
+} from '@mui/icons-material';
 
 import BackButton from "../../components/BackButton/BackButton"
 
 import USERS from "../../constants/users"
-import { CATEGORIES } from '../../constants/categories';
 import { EMPTY_DAILY } from "../../constants/daily";
 import { FOOD_TIMES } from "../../constants/foodTimes";
 
+import SelectTime from './selectTime/SelectTime'
+import SelectQuantity from './selectQuantity/SelectQuantity'
+import SelectHour from './selectHour/SelectHour'
+
 import './newFood.css'
 
-const Categorie = ({ id, name, allowed, currentFood, remove, add }) => {
-  const disabledRemove = false && currentFood?.[id] <= 0
-  const disabledAdd = false && currentFood?.[id] >= allowed
-  const currentQuantity = currentFood?.[id] ?? '0'
-  
+const END_STEP = 3
 
-  return (
-    <div className="categorieContainer">
-      <div className="nameContainer">
-        <span className="name">{name}: <i>{currentQuantity}</i></span>
-        <span className="avalaible">Disponibles: {isNaN(allowed) ? '' : allowed ?? ''} </span>
-      </div>
-      <div className="buttons">
-      <IconButton disabled={disabledRemove} aria-label="delete" size="large">
-        <Remove className="remove" onClick={ () => remove(id) } fontSize='large' />
-      </IconButton>
-      <IconButton disabled={disabledAdd} aria-label="add" size="large">
-        <Add onClick={ () => add(id) }  disabled={disabledAdd} fontSize='large' />
-      </IconButton>
-      </div>
-    </div>
-  )
+const TITLE_BY_STEP = {
+  1: 'Tiempo',
+  2: 'Distribución',
+  3: 'Hora',
 }
 
 const NewFood = ({
@@ -49,6 +43,9 @@ const NewFood = ({
   const [dailyData, setDailyData] = useState({})
   const [currentFood, setCurrentFood] = useState(EMPTY_DAILY)
   const [foodTime, setFoodTime] = useState(FOOD_TIMES?.snack?.id)
+  const [step, setStep] = useState(1)
+
+  const userData = USERS?.[user]
 
   const add = (id) => setCurrentFood({...currentFood, [id]: (currentFood?.[id] || 0) + 0.5})
   const remove = (id) => setCurrentFood({...currentFood, [id]: (currentFood?.[id] || 0) - 0.5})
@@ -85,41 +82,61 @@ const NewFood = ({
 
   const onChangeFoodTime = (id) => setFoodTime(id)
 
+  const NextStep = () => setStep(step + 1)
+  const PreviousStep = () => setStep(step - 1)
+
   return (
     <div className="NewFood">
-      <BackButton changeScreen={changeScreen} screen="main" />
-      <span className='user'>{USERS?.[user]?.completeName}</span>
-      <div className="moreOptions">
-        <ButtonGroup variant="text" aria-label="text button group">
-          {Object.values(FOOD_TIMES).map(({ id, name, icon }) => (
-            <Button
-              key={id}
-              className={`foodTimeButton ${id === foodTime ? 'selected' : ''}`}
-              onClick={() => onChangeFoodTime(id)}
-            >
-              {/* {icon()} */}
-              {name}
-            </Button>
-          ))}
-        </ButtonGroup>  
+      <div className="NewFoodHeader">
+        <BackButton changeScreen={changeScreen} screen="main" />
+        <Typography className='title' textAlign='center' >
+          {TITLE_BY_STEP?.[step]}
+        </Typography>
+        {step === 1 &&
+          <Typography className='explication' textAlign='center' >
+            Hola {userData?.completeName}, completa las 3 pantallas siguientes
+          </Typography>
+        }
       </div>
-      <div className="categories">
-        {CATEGORIES.map((categorie) => 
-          <Categorie 
-          add={add} 
-          allowed={plannData?.[categorie?.id] - dailyData?.[categorie?.id]}
-          remove={remove} 
-          id={categorie?.id} 
-          key={categorie?.id} 
-          name={categorie?.name}
-          currentFood={currentFood}
-          />
-          )}
+      <div className="NewFoodContainerSteps">
+        {step === 1 && 
+          <SelectTime
+            userData={userData}
+            foodTime={foodTime}
+            onChangeFoodTime={onChangeFoodTime}
+          />}
+        {step === 2 && 
+          <SelectQuantity
+            add={add}
+            remove={remove} 
+            plannData={plannData}
+            dailyData={dailyData}
+            currentFood={currentFood}
+          />}
+        {step === 3 && <SelectHour />}
       </div>
-      <div className="actions">
-      <ButtonGroup className="actionButtons" size="large" aria-label="large button group">
-        <Button className="addButton" onClick={() => _addNewFood(currentFood)}>Agregar</Button>
-      </ButtonGroup>
+      <div className="NewFoodFooter">
+        <ButtonGroup className="actionButtons" size="large" aria-label="large button group">
+          {step > 1
+            ?
+            <IconButton onClick={PreviousStep}>
+              <ArrowBack />
+            </IconButton>
+            :
+            <div style={{width: '40px'}} />
+            }
+          <Typography className="AboutStep">
+            Paso { step === END_STEP ? 'final' :  `${step} de ${END_STEP}` }
+          </Typography>
+          {step < END_STEP && 
+            <IconButton onClick={NextStep}>
+              <ArrowNext />
+            </IconButton>}
+          {step === END_STEP  && 
+            <IconButton onClick={() => _addNewFood(currentFood)}>
+              <AddCircle />
+            </IconButton>}
+        </ButtonGroup>
       </div>
     </div>
   );

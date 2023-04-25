@@ -1,91 +1,27 @@
-.NewFood {
+.SelectTimeContainer {
     width: 100%;
-    height: 100vh;
+    height: 100%;
+}
+.SelectTimeContainer .cardActionContainer {
+    margin: 20px;
+    z-index: 1;
+}
+
+.SelectTimeContainer .CardAction {
+    height: 250px;
+    cursor: pointer;
+    background-color: rgba(255,255,255,0.2);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background: #1D3752;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: white;
 }
 
-.NewFood .categories {
-    height: 100%;
-    width: 100%;
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin-left: 30px;
+.SelectTimeContainer .CardAction .emoji {
+    text-align: center;
+    font-size: 70px;
 }
 
-.NewFood .categorieContainer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-}
-
-.NewFood .user {
-    margin: 30px 0 10px;
-}
-
-.NewFood .moreOptions {
-    margin: 10px 0 0;
-}
-
-.NewFood .moreOptions .foodTimeButton {
-    font-size: 0.8rem !important;
-    transition: all 0.3s ease both;
-}
-
-.NewFood .moreOptions .foodTimeButton.selected {
-    color: #1D3752 !important;
-    background: white;
-    font-weight: 600;
-    transition: all 0.3s ease both;
-}
-
-.categorieContainer .nameContainer .name{
-    display: block;
-}
-
-.categorieContainer .avalaible{
-    color: grey;
-}
-
-.categorieContainer .buttons {
-    width: 50%;
-    margin-top: 8px;
-    display: flex;
-    justify-content: space-evenly;
-}
-
-.categorieContainer .remove {
-    color: pink;
-}
-
-.avalaible {
-    font-size: 14px;
-}
-
-.actions {
-    margin-bottom: 20px;
-}
-
-.actions, .actionButtons {
-    width: 100%;
-    font-size: 1.3rem;
-}
-
-.actionButtons {
-    width: calc(100% - 40px);
-    margin: 0 20px;
-}
-
-.actionButtons .MuiButton-root {
-    width: 100%;
+.SelectTimeContainer .CardAction .title {
+    text-align: center;
+    font-size: 16px;
 }

@@ -10,7 +10,7 @@ import './main.css'
 
 const CardAction = ({ emoji, title, onClick }) => {
   return (
-    <Grid xs={6} md={8}>
+    <Grid xs={6}>
       <Paper className='CardAction' elevation={0} onClick={onClick} >
         <span className='emoji'>{emoji}</span>
         <span className='title'>{title}</span>

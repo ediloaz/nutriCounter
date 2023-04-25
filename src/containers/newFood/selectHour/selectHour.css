@@ -11,41 +11,6 @@
     color: white;
 }
 
-.NewFood .NewFoodContainerSteps {
-    margin-top: 100px;
-    width: 100%;
-    height: 100%;
-}
-
-.NewFood .NewFoodHeader {
-    position: absolute;
-    top: 20px;
-    left: 60px;
-    width: calc(100% - 60px);
-}
-.NewFood .NewFoodHeader .title {
-    font-size: 24px;
-}
-
-.NewFood .NewFoodFooter {
-    width: 100%;
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-}
-
-.NewFood .NewFoodFooter .actionButtons {
-    display: flex;
-    justify-content: center;
-}
-
-.NewFood .NewFoodFooter .actionButtons .AboutStep {
-    width: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .NewFood .categories {
     height: 100%;
     width: 100%;
@@ -105,4 +70,22 @@
 
 .avalaible {
     font-size: 14px;
+}
+
+.actions {
+    margin-bottom: 20px;
+}
+
+.actions, .actionButtons {
+    width: 100%;
+    font-size: 1.3rem;
+}
+
+.actionButtons {
+    width: calc(100% - 40px);
+    margin: 0 20px;
+}
+
+.actionButtons .MuiButton-root {
+    width: 100%;
 }
