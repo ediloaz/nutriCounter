@@ -8,12 +8,15 @@
 }
 
 .SelectTimeContainer .CardAction {
-    height: 250px;
+    height: fit-content;
     cursor: pointer;
     background-color: rgba(255,255,255,0.2);
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    padding: 10px;
+    transition: transform .1s linear;
 }
 
 .SelectTimeContainer .CardAction .emoji {
@@ -24,4 +27,8 @@
 .SelectTimeContainer .CardAction .title {
     text-align: center;
     font-size: 16px;
+}
+
+.SelectTimeContainer .CardAction.selected {
+    transform: scale(1, 1.1);
 }

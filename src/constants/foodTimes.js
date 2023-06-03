@@ -1,4 +1,4 @@
-import { FreeBreakfast, RiceBowl, DinnerDining, BakeryDining, Fastfood } from '@mui/icons-material';
+import { FreeBreakfast, RiceBowl, DinnerDining, BakeryDining, NoFood, LocalCafe, TakeoutDining, Icecream, LocalDrink } from '@mui/icons-material';
 
 export const FOOD_TIMES = {
   breakfast: {
@@ -11,69 +11,39 @@ export const FOOD_TIMES = {
     name: 'Almuerzo',
     icon: (props) => <RiceBowl {...props} />,
   },
+  coffee: {
+    id: 'coffee',
+    name: 'Café',
+    icon: (props) => <LocalCafe {...props} />,
+  },
   dinner: {
     id: 'dinner',
     name: 'Cena',
     icon: (props) => <DinnerDining {...props} />,
+  },
+  beverage: {
+    id: 'beverage',
+    name: 'Bebidas',
+    icon: (props) => <LocalDrink {...props} />,
   },
   snack: {
     id: 'snack',
     name: 'Snack',
     icon: (props) => <BakeryDining {...props} />,
   },
+  dessert: {
+    id: 'dessert',
+    name: 'Postre',
+    icon: (props) => <Icecream {...props} />,
+  },
+  junk: {
+    id: 'junk',
+    name: 'Chatarra',
+    icon: (props) => <NoFood {...props} />,
+  },
   other: {
     id: 'other',
     name: 'Otro',
-    icon: (props) => <Fastfood {...props} />,
-  },
-  breakfast1: {
-    id: 'breakfast',
-    name: 'Desayuno',
-    icon: (props) => <FreeBreakfast {...props} />,
-  },
-  lunch1: {
-    id: 'lunch',
-    name: 'Almuerzo',
-    icon: (props) => <RiceBowl {...props} />,
-  },
-  dinner1: {
-    id: 'dinner',
-    name: 'Cena',
-    icon: (props) => <DinnerDining {...props} />,
-  },
-  snack1: {
-    id: 'snack',
-    name: 'Snack',
-    icon: (props) => <BakeryDining {...props} />,
-  },
-  other1: {
-    id: 'other',
-    name: 'Otro',
-    icon: (props) => <Fastfood {...props} />,
-  },
-  breakfast2: {
-    id: 'breakfast',
-    name: 'Desayuno',
-    icon: (props) => <FreeBreakfast {...props} />,
-  },
-  lunch2: {
-    id: 'lunch',
-    name: 'Almuerzo',
-    icon: (props) => <RiceBowl {...props} />,
-  },
-  dinner2: {
-    id: 'dinner',
-    name: 'Cena',
-    icon: (props) => <DinnerDining {...props} />,
-  },
-  snack2: {
-    id: 'snack',
-    name: 'Snack',
-    icon: (props) => <BakeryDining {...props} />,
-  },
-  other2: {
-    id: 'other',
-    name: 'Otro',
-    icon: (props) => <Fastfood {...props} />,
+    icon: (props) => <TakeoutDining {...props} />,
   },
 }

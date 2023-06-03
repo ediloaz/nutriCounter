@@ -11,6 +11,15 @@
     color: white;
 }
 
+.NewFood .SelectHourContainer > div {
+    background-color: transparent !important;
+}
+
+.NewFood .SelectHourContainer .MuiDialogActions-root,
+.NewFood .SelectHourContainer .MuiPickersArrowSwitcher-root {
+    display: none;
+}
+
 .NewFood .categories {
     height: 100%;
     width: 100%;

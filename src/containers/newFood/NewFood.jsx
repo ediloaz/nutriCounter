@@ -30,6 +30,45 @@ const TITLE_BY_STEP = {
   3: 'Hora',
 }
 
+const WelcomeTitle = ({ step, completeName }) =>
+  step === 1 &&
+    <Typography className='explication' textAlign='center' >
+      Hola {completeName}, completa las 3 pantallas siguientes
+    </Typography>
+
+const SwitcherStepsScreen = ({ 
+  step,
+  userData,
+  foodTime,
+  onChangeFoodTime,
+  add,
+  remove,
+  plannData,
+  dailyData,
+  currentFood,
+ }) => {
+  switch(step) {
+    case 1:
+      return <SelectTime
+        userData={userData}
+        foodTime={foodTime}
+        onChangeFoodTime={onChangeFoodTime}
+      />
+    case 2:
+      return <SelectQuantity
+        add={add}
+        remove={remove} 
+        plannData={plannData}
+        dailyData={dailyData}
+        currentFood={currentFood}
+      />
+    case 3:
+      return <SelectHour />
+    default:
+      return <></>
+  }
+}
+
 const NewFood = ({
   user,
   plann,
@@ -92,28 +131,19 @@ const NewFood = ({
         <Typography className='title' textAlign='center' >
           {TITLE_BY_STEP?.[step]}
         </Typography>
-        {step === 1 &&
-          <Typography className='explication' textAlign='center' >
-            Hola {userData?.completeName}, completa las 3 pantallas siguientes
-          </Typography>
-        }
+        <WelcomeTitle step={step} completeName={userData?.completeName} />
       </div>
       <div className="NewFoodContainerSteps">
-        {step === 1 && 
-          <SelectTime
-            userData={userData}
-            foodTime={foodTime}
-            onChangeFoodTime={onChangeFoodTime}
-          />}
-        {step === 2 && 
-          <SelectQuantity
-            add={add}
-            remove={remove} 
-            plannData={plannData}
-            dailyData={dailyData}
-            currentFood={currentFood}
-          />}
-        {step === 3 && <SelectHour />}
+        <SwitcherStepsScreen step={step}
+          userData={userData}
+          foodTime={foodTime}
+          onChangeFoodTime={onChangeFoodTime}
+          add={add}
+          remove={remove}
+          plannData={plannData}
+          dailyData={dailyData}
+          currentFood={currentFood}
+        />
       </div>
       <div className="NewFoodFooter">
         <ButtonGroup className="actionButtons" size="large" aria-label="large button group">
