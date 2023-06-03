@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/nutriCounter/build/static/css/main.98c05f48.css",
-    "main.js": "/nutriCounter/build/static/js/main.9e057782.js",
+    "main.css": "/nutriCounter/build/static/css/main.59ad9af0.css",
+    "main.js": "/nutriCounter/build/static/js/main.8951c8c9.js",
     "static/js/787.a52baf52.chunk.js": "/nutriCounter/build/static/js/787.a52baf52.chunk.js",
     "index.html": "/nutriCounter/build/index.html",
-    "main.98c05f48.css.map": "/nutriCounter/build/static/css/main.98c05f48.css.map",
-    "main.9e057782.js.map": "/nutriCounter/build/static/js/main.9e057782.js.map",
+    "main.59ad9af0.css.map": "/nutriCounter/build/static/css/main.59ad9af0.css.map",
+    "main.8951c8c9.js.map": "/nutriCounter/build/static/js/main.8951c8c9.js.map",
     "787.a52baf52.chunk.js.map": "/nutriCounter/build/static/js/787.a52baf52.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.98c05f48.css",
-    "static/js/main.9e057782.js"
+    "static/css/main.59ad9af0.css",
+    "static/js/main.8951c8c9.js"
   ]
 }
