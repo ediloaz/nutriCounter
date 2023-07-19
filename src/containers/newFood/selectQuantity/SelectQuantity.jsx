@@ -3,6 +3,8 @@ import { RemoveCircleOutline as Remove, AddCircleOutline as Add } from '@mui/ico
 
 import { CATEGORIES } from '../../../constants/categories';
 
+import CaloriesItem from "../../../components/CaloriesItem/CaloriesItem"
+
 import './selectQuantity.css'
 
 const Categorie = ({ id, name, allowed, currentFood, remove, add }) => {
@@ -49,6 +51,7 @@ const SelectQuantity = ({
           currentFood={currentFood}
         />
       )}
+      <CaloriesItem />
     </div>
   );
 }
