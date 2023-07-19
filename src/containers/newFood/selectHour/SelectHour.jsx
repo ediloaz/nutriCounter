@@ -5,13 +5,14 @@ import { StaticTimePicker } from '@mui/x-date-pickers/StaticTimePicker';
 import './selectHour.css'
 
 const SelectHour = ({
+  onChangeFoodHour
 }) => {
   return (
     <div className="SelectHourContainer">
       <StaticTimePicker
         label="asd"
         defaultValue={moment(new Date())}
-        onChange={(value) => {console.log(value)}}
+        onChange={onChangeFoodHour}
       />
     </div>
   );

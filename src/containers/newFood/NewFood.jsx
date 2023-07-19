@@ -41,6 +41,7 @@ const SwitcherStepsScreen = ({
   userData,
   foodTime,
   onChangeFoodTime,
+  onChangeFoodHour,
   add,
   remove,
   plannData,
@@ -63,7 +64,9 @@ const SwitcherStepsScreen = ({
         currentFood={currentFood}
       />
     case 3:
-      return <SelectHour />
+      return <SelectHour
+        onChangeFoodHour={onChangeFoodHour}
+      />
     default:
       return <></>
   }
@@ -82,6 +85,7 @@ const NewFood = ({
   const [dailyData, setDailyData] = useState({})
   const [currentFood, setCurrentFood] = useState(EMPTY_DAILY)
   const [foodTime, setFoodTime] = useState(FOOD_TIMES?.snack?.id)
+  const [foodHour, setFoodHour] = useState(null)
   const [step, setStep] = useState(1)
 
   const userData = USERS?.[user]
@@ -113,6 +117,7 @@ const NewFood = ({
     const newCurrent = {
       ...currentFood,
       foodTime,
+      hour: foodHour,
     }
 
     addNewFood({ daily: newFood, current: newCurrent, history: dailyData?.history || [] })
@@ -121,13 +126,15 @@ const NewFood = ({
 
   const onChangeFoodTime = (id) => setFoodTime(id)
 
+  const onChangeFoodHour = (value) => setFoodHour(value)
+
   const NextStep = () => setStep(step + 1)
   const PreviousStep = () => setStep(step - 1)
 
   return (
     <div className="NewFood">
       <div className="NewFoodHeader">
-        <BackButton changeScreen={changeScreen} screen="main" />
+        <BackButton changeScreen={changeScreen} screen="main" disabled={step>1} />
         <Typography className='title' textAlign='center' >
           {TITLE_BY_STEP?.[step]}
         </Typography>
@@ -138,6 +145,7 @@ const NewFood = ({
           userData={userData}
           foodTime={foodTime}
           onChangeFoodTime={onChangeFoodTime}
+          onChangeFoodHour={onChangeFoodHour}
           add={add}
           remove={remove}
           plannData={plannData}

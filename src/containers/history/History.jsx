@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import moment from 'moment'
+import { orderBy } from 'lodash'
 
 import { Typography } from '@mui/material'
 import { Timeline, TimelineItem, TimelineSeparator, TimelineConnector, TimelineContent, TimelineOppositeContent, TimelineDot } from '@mui/lab'
@@ -12,6 +14,7 @@ import './history.css'
 
 const FLAT_COLORS = ['#16a085', '#27ae60', '#2980b9', '#8e44ad', '#2c3e50', '#f39c12', '#d35400', '#7f8c8d']
 
+const _parseTimeToMoment = (timeString) => moment(timeString, 'h:mm a');
 
 const HistoryTimelineItem = ({ flatColor, nextFlatColor, odd, hour, foodTime, categories, isFinal }) => {
   const topLineColor = flatColor
@@ -54,20 +57,26 @@ const History = ({
   getPlanns,
   changeScreen,
 }) => {
-  const [dailyData, setDailyData] = useState()
+  const [dailyHistory, setDailyHistory] = useState()
 
   var nextFlatColor
 
   useEffect(() => {
-    if (!dailyData) {
+    if (!dailyHistory) {
       const dailyQuery = getDaily(daily)
       dailyQuery.then((data) => {
         console.log(`Daily actual de ${daily}:`, data)
-        JSON.stringify(data) !== JSON.stringify(dailyData) && setDailyData(data)
+        const history = data?.history || []
+        if (JSON.stringify(history) !== JSON.stringify(dailyHistory)) {
+          // Re order by time
+          const sortedHistory = orderBy(history, (obj) => _parseTimeToMoment(obj.hour));
+          
+          setDailyHistory(sortedHistory)
+        }
       })
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dailyData, plann, daily, getPlanns, getDaily])
+  }, [dailyHistory, plann, daily, getPlanns, getDaily])
 
   return (
     <div className="History">
@@ -77,7 +86,7 @@ const History = ({
         Recuerda que sin importar que, <b>siempre sos suficiente</b> ❤️
       </Typography>
       <Timeline position="alternate" className="list">
-        {dailyData?.history?.map((item, i) => {
+        {dailyHistory?.map((item, i) => {
           const flatColor = nextFlatColor || FLAT_COLORS[Math.floor(Math.random()*FLAT_COLORS.length)]
           nextFlatColor = FLAT_COLORS[Math.floor(Math.random()*FLAT_COLORS.length)]
           
@@ -97,7 +106,7 @@ const History = ({
               }}
               flatColor={flatColor}
               nextFlatColor={nextFlatColor}
-              isFinal={i === dailyData?.history?.length - 1}
+              isFinal={i === dailyHistory?.length - 1}
             />
           )
         }

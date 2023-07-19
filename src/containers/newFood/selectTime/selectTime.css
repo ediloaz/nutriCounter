@@ -5,6 +5,7 @@
 .SelectTimeContainer .cardActionContainer {
     margin: 20px;
     z-index: 1;
+    height: 100%;
 }
 
 .SelectTimeContainer .CardAction {
@@ -31,4 +32,6 @@
 
 .SelectTimeContainer .CardAction.selected {
     transform: scale(1, 1.1);
+    background-color: rgba(255,255,255,0.6);
+    font-weight: bolder;
 }

@@ -3,10 +3,10 @@ import { ArrowBackIosNew } from '@mui/icons-material'
 
 import './backButton.css'
 
-const BackButton = ({ changeScreen, screen }) => {
+const BackButton = ({ changeScreen, screen, disabled }) => {
     return (
         <div className='BackButton'>
-            <IconButton onClick={() => changeScreen(screen)} component="label">
+            <IconButton onClick={() => changeScreen(screen)} component="label" disabled={disabled}>
                 <ArrowBackIosNew  />
             </IconButton>
         </div>

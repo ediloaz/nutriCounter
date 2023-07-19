@@ -8,17 +8,16 @@ const DAILY_COLLECTION = 'daily'
 export const addNewFood = async (db, { daily, current, history }, dailyName) => {
   const ref = doc(db, DAILY_COLLECTION, dailyName);
 
-  const hour = moment(new Date()).format('h:mm a');
-
-  console.log('daily', hour, daily, current)
+  const currentTime = current?.hour?._d || new Date()
+  const hour = moment(currentTime).format('h:mm a');
 
   const newDaily = {
     ...daily,
     history: [
       ...history,
       {
-        hour,
         ...current,
+        hour,
       }
     ]
   }
