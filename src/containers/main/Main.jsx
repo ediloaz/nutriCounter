@@ -91,7 +91,7 @@ const Main = ({
   ]
 
   return (
-    <div className="Main" style={{ backgroundColor: bottomBG?.color }}>
+    <div className="Main">
       {/* <CircularProgress
         topText="100"
         bottomText="calories"

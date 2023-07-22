@@ -8,6 +8,8 @@ import Summary from './containers/summary/Summary'
 import History from './containers/history/History'
 import ChangeUser from './containers/changeUser/ChangeUser'
 
+import { getBottomBackground } from './helpers/images'
+
 import { createDailyIfNotExists, addNewFood } from './helpers/firebase'
 import { getNameCurrentDaily } from './helpers/daily'
 
@@ -15,13 +17,24 @@ import './App.css';
 
 const DEFAULT_USER = 'eddie'
 
+const AppContent = ({ screen, props }) => {
+  if (screen === 'newFood') return <NewFood {...props} />
+  else if (screen === 'summary') return <Summary {...props} />
+  else if (screen === 'changeUser') return <ChangeUser {...props} />
+  else if (screen === 'history') return <History {...props} />
+  return <Main {...props} />
+}
+
 function App() {
   const { db, getUsers, getDaily, getPlanns } = Firebase()
+  
+  const bottomBG = getBottomBackground()
 
   const [screen, setScreen] = useState('main')
   const [user, setUser] = useState()
   const [plann, setPlann] = useState()
   const [daily, setDaily] = useState()
+
   
   const changeScreen = (newScreenName) => setScreen(newScreenName)
 
@@ -73,11 +86,11 @@ function App() {
     getPlanns,
   }
 
-  if (screen === 'newFood') return <NewFood {...props} />
-  else if (screen === 'summary') return <Summary {...props} />
-  else if (screen === 'changeUser') return <ChangeUser {...props} />
-  else if (screen === 'history') return <History {...props} />
-  return <Main {...props} />
+  return (
+    <div style={{ backgroundColor: bottomBG?.color }}>
+      <AppContent screen={screen} props={props} />
+    </div>
+  )
 }
 
 export default App;
