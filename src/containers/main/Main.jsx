@@ -79,8 +79,14 @@ const Main = ({
     {
       id: 'todayFood',
       emoji: '📅',
-      title: '¿Qué he comido?',
+      title: '¿Qué he comido hoy?',
       onClick: () => changeScreen('summary'),
+    },
+    {
+      id: 'todayFood',
+      emoji: '📜',
+      title: 'Historial de comidas de hoy',
+      onClick: () => changeScreen('history'),
     },
     {
       id: 'addWater',

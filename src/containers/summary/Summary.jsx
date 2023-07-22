@@ -57,11 +57,11 @@ const Summary = ({
           />
           )}
       </div>
-      <div className="actions">
+      {/* <div className="actions">
       <ButtonGroup className="actionButtons" size="large" aria-label="large button group">
         <Button className="addButton" onClick={() => changeScreen('history')}>Historial</Button>
       </ButtonGroup>
-      </div>
+      </div> */}
     </div>
   );
 }
