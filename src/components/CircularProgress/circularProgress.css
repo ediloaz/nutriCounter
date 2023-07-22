@@ -8,6 +8,10 @@
     position: absolute;
 }
 
+.CircularProgress .backSvg {
+  position: absolute;
+}
+
 .CircularProgress .content {
     display: flex;
     flex-direction: column;

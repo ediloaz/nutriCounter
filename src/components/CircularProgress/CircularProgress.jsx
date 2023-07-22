@@ -1,36 +1,44 @@
-import { useEffect, useState } from 'react';
-import { CircularProgress as CP } from '@mui/material';
+import { useEffect, useState } from "react";
+import { CircularProgress as CP } from "@mui/material";
 
-import './circularProgress.css'
+import { getBottomBackground } from '../../helpers/images'
+
+import "./circularProgress.css";
 
 const CircularProgress = (props) => {
-    const { 
-        min = 0,
-        max = 2000,
-        value = 80,
-        topText = 'parametro',
-        bottomText = 'parametro',
-        className,
-     } = props
+  const {
+    max = 2000,
+    value = 80,
+    topText = "parametro",
+    bottomText = "parametro",
+    className,
+  } = props
 
-     const [variant, setVariant] = useState('determinate')
-     
+  const bottomBG = getBottomBackground()
 
-     useEffect(() => {
-        setTimeout(() => {
-            setVariant('determinate')
-        }, 300)
-     },)
+  const [variant, setVariant] = useState("determinate");
 
-    return (
-        <div className={`CircularProgress ${className}`} style={{ minWidth: 200 + 50, minHeight: 200 + 50 }} >
-            <CP className='svg' size={200} variant={variant} value={value} />
-            <div className='content'>
-                <span className='topText'>{topText}</span>
-                <span className='bottomText'>{bottomText}</span>
-            </div>
-        </div>
-    )
-}
+  useEffect(() => {
+    setTimeout(() => {
+      setVariant("determinate");
+    }, 300);
+  });
 
-export default CircularProgress
+  const currentValue = value*100/max
+
+  return (
+    <div
+      className={`CircularProgress ${className}`}
+      style={{ minWidth: 200 + 50, minHeight: 200 + 50 }}
+    >
+      <CP className="backSvg" style={{color: bottomBG?.lightColor}} size={200} variant={variant} value={100} />
+      <CP className="svg" style={{color: bottomBG?.darkColor}} size={200} variant={variant} value={currentValue} />
+      <div className="content">
+        <span className="topText">{topText}</span>
+        <span className="bottomText">{bottomText}</span>
+      </div>
+    </div>
+  );
+};
+
+export default CircularProgress;
