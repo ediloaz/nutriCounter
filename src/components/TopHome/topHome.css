@@ -1,0 +1,24 @@
+.TopHomeContainer {
+  width: 100%;
+  height: 200px;
+}
+
+.TopHomeContainer .TopContainer {
+  width: 100%;
+  height: 165px;
+  padding: 30px 30px;
+}
+
+.TopHomeContainer .TopContainer .Avatar {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.TopHomeContainer .BottomContainer {
+  width: 100%;
+  height: 40px;
+  border-radius: 50px 50px 0 0;
+  margin-top: -38px;
+}
+

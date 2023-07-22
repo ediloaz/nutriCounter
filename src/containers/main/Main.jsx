@@ -1,15 +1,16 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
-import Grid from "@mui/material/Unstable_Grid2";
-import { Button, Typography, Paper, Link } from "@mui/material";
-import { SupervisedUserCircle, Info } from "@mui/icons-material";
+import Grid from "@mui/material/Unstable_Grid2"
+import { Button, Typography, Paper, Link } from "@mui/material"
+import { SupervisedUserCircle, Info } from "@mui/icons-material"
 
-import CircularProgress from "../../components/CircularProgress/CircularProgress";
-import { getBottomBackground } from "../../helpers/images";
-import { getRandomMotivationalPhrase } from "../../helpers/phrases";
-import { CATEGORIES_OBJECT } from "../../constants/categories";
+import TopHome from "../../components/TopHome/TopHome"
+import CircularProgress from "../../components/CircularProgress/CircularProgress"
+import { getBottomBackground } from "../../helpers/images"
+import { getRandomMotivationalPhrase } from "../../helpers/phrases"
+import { CATEGORIES_OBJECT } from "../../constants/categories"
 
-import "./main.css";
+import "./main.css"
 
 const CardAction = ({ emoji, title, onClick }) => {
   return (
@@ -19,8 +20,8 @@ const CardAction = ({ emoji, title, onClick }) => {
         <span className="title">{title}</span>
       </Paper>
     </Grid>
-  );
-};
+  )
+}
 
 const SumCal = (currentCal) => {
   return parseInt(
@@ -30,8 +31,8 @@ const SumCal = (currentCal) => {
       currentCal?.fat * CATEGORIES_OBJECT?.fat?.kcal +
       currentCal?.fruit * CATEGORIES_OBJECT?.fruit?.kcal +
       currentCal?.vegetable * CATEGORIES_OBJECT?.vegetable?.kcal
-  );
-};
+  )
+}
 
 const CaloriesSummary = ({ bottomBG, plannData, dailyData }) => {
   return dailyData && plannData?.kcal ? (
@@ -40,29 +41,29 @@ const CaloriesSummary = ({ bottomBG, plannData, dailyData }) => {
     </Typography>
   ) : (
     <Typography style={{ color: bottomBG?.darkColor }}>...</Typography>
-  );
-};
+  )
+}
 
 const Main = ({ user, changeScreen, daily, plann, getPlanns, getDaily }) => {
-  const [plannData, setPlannData] = useState({});
-  const [dailyData, setDailyData] = useState({});
+  const [plannData, setPlannData] = useState({})
+  const [dailyData, setDailyData] = useState({})
 
   useEffect(() => {
-    const plannQuery = getPlanns(plann);
+    const plannQuery = getPlanns(plann)
     plannQuery.then((data) => {
-      console.log(`Plan actual de ${plann}:`, data);
-      setPlannData(data);
-    });
+      console.log(`Plan actual de ${plann}:`, data)
+      setPlannData(data)
+    })
 
-    const dailyQuery = getDaily(daily);
+    const dailyQuery = getDaily(daily)
     dailyQuery.then((data) => {
-      console.log(`Daily actual de ${daily}:`, data);
-      setDailyData(data);
-    });
-  }, [plann, daily, getPlanns, getDaily]);
+      console.log(`Daily actual de ${daily}:`, data)
+      setDailyData(data)
+    })
+  }, [plann, daily, getPlanns, getDaily])
 
-  const bottomBG = getBottomBackground();
-  const randomPhrase = getRandomMotivationalPhrase();
+  const bottomBG = getBottomBackground()
+  const randomPhrase = getRandomMotivationalPhrase()
 
   const cardsContent = [
     {
@@ -89,10 +90,11 @@ const Main = ({ user, changeScreen, daily, plann, getPlanns, getDaily }) => {
       title: "Agregar agua",
       onClick: () => alert("Pronto, mi amoris. No comas ansias!"),
     },
-  ];
+  ]
 
   return (
     <div className="Main">
+      <TopHome user={user} />
       <CircularProgress
         topText={SumCal(dailyData) || 0}
         bottomText="calorías"
@@ -135,7 +137,7 @@ const Main = ({ user, changeScreen, daily, plann, getPlanns, getDaily }) => {
         alt={bottomBG?.id}
       />
     </div>
-  );
-};
+  )
+}
 
-export default Main;
+export default Main
