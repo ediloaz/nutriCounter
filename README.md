@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# Nutri Counter (nutricounter)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Nutri Counter es una aplicación en React diseñada para llevar un registro de los alimentos y calorías consumidos, basándose en la Lista de Intercambio de Alimentos - ADA y permitiendo agregar alimentos personalizados con sus respectivas cantidades y calorías. La aplicación ofrece pantallas de resumen diario, historial de alimentos del día, y una vista para consultar el histórico día por día, junto con algunas estadísticas interesantes.
 
-## Available Scripts
+## Características
 
-In the project directory, you can run:
+- Registro de alimentos y calorías basado en la Lista de Intercambio de Alimentos - ADA.
+- Posibilidad de agregar alimentos personalizados con detalles y calorías específicas.
+- Pantalla de resumen diario mostrando el consumo total de calorías y macronutrientes.
+- Historial de alimentos del día para hacer un seguimiento detallado.
+- Visualización del histórico día por día con la ingesta de calorías registradas.
+- Estadísticas interesantes para proporcionar información valiosa.
 
-### `npm start`
+## Capturas de Pantalla
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+*(Inserta aquí algunas capturas de pantalla de tu aplicación en acción)*
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Instalación
 
-### `npm test`
+Para ejecutar localmente Nutri Counter, sigue estos pasos:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Clona este repositorio en tu máquina local.
+2. Ejecuta `npm install` para instalar las dependencias requeridas.
+3. Utiliza `npm start` para iniciar la aplicación en modo desarrollo.
+4. Abre tu navegador y ve a `http://localhost:3000` para ver la aplicación.
 
-### `npm run build`
+## Tareas Pendientes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A continuación, se enumeran algunas de las tareas pendientes que se pueden abordar en el proyecto:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Implementar la funcionalidad de búsqueda para buscar alimentos en la lista de intercambio.
+2. Agregar la posibilidad de editar y eliminar alimentos personalizados.
+3. Mejorar el diseño de las pantallas de resumen diario y estadísticas para una apariencia más atractiva.
+4. Implementar autenticación y permitir a los usuarios crear cuentas para guardar sus datos.
+5. Agregar gráficos e informes visuales para una mejor visualización de las estadísticas.
+6. Implementar la opción de establecer objetivos de calorías diarias y rastrear el progreso.
+7. Añadir una función de recordatorio para animar a los usuarios a registrar su consumo diario.
+8. Mejorar la capacidad de respuesta para admitir diferentes tamaños de pantalla y dispositivos.
+9. Implementar una función de importación/exportación para guardar y cargar datos en formato CSV.
+10. Añadir pruebas unitarias y de integración para garantizar la calidad del código.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Siéntete libre de elegir cualquiera de estas tareas para contribuir al proyecto. ¡Esperamos tus aportaciones!
 
-### `npm run eject`
+## Contribuir
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Si deseas contribuir a Nutri Counter, sigue estos pasos:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Haz un fork de este repositorio.
+2. Crea una rama para tu contribución: `git checkout -b nombre-de-la-rama`.
+3. Realiza los cambios y mejoras deseadas.
+4. Haz commit de tus cambios: `git commit -m "Descripción breve de los cambios"`.
+5. Haz push a la rama: `git push origin nombre-de-la-rama`.
+6. Abre un Pull Request en este repositorio.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Licencia
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+*Por definir*
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
