@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import moment from "moment";
-import { orderBy, isEmpty } from "lodash";
+import { sumBy, orderBy, isEmpty } from "lodash";
 
 import { Typography } from "@mui/material";
 import {
@@ -13,6 +13,7 @@ import {
   TimelineDot,
 } from "@mui/lab";
 
+import { CATEGORIES } from "../../constants/categories";
 import BackButton from "../../components/BackButton/BackButton";
 
 import { getCategoryNameById, calcCategoryCalc } from "../../helpers/categories";
@@ -33,6 +34,13 @@ const FLAT_COLORS = [
 
 const _parseTimeToMoment = (timeString) => moment(timeString, "h:mm a");
 
+const _totalCaloriesByTimelineItem = (categories, customFoods) => {
+  const totalCaloriesCategories = sumBy(CATEGORIES, category => category.kcal * categories[category.id])
+  const totalCaloriesCustomFoods = sumBy(customFoods, food => parseInt(food.cal))
+  
+  return totalCaloriesCategories + totalCaloriesCustomFoods;
+}
+
 const HistoryTimelineItem = ({
   odd,
   hour,
@@ -45,6 +53,7 @@ const HistoryTimelineItem = ({
 }) => {
   const topLineColor = flatColor;
   const bottomLineColor = nextFlatColor;
+  const totalCalories = _totalCaloriesByTimelineItem(categories, customFoods)
   
   return (
     <TimelineItem className="itemContainer">
@@ -53,6 +62,7 @@ const HistoryTimelineItem = ({
           {foodTime ? `${FOOD_TIMES?.[foodTime]?.name ?? "Desconocido"}` : ""}
         </Typography>
         <Typography className="hour">{hour}</Typography>
+        <Typography className="kCalTotals">Calorías totales: {totalCalories}</Typography>
       </TimelineOppositeContent>
       <TimelineSeparator>
         <TimelineConnector sx={{ bgcolor: topLineColor }} />
@@ -67,6 +77,7 @@ const HistoryTimelineItem = ({
         sx={{ m: "auto 0" }}
         variant="body2"
         color="text.secondary"
+        className="foodList"
       >
         <div className={`categories ${odd ? "odd" : ""}`}>
           {Object.keys(categories).map(

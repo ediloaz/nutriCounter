@@ -23,9 +23,18 @@
     font-style: italic;
 }
 
+.History .list .kCalTotals {
+  font-style: italic;
+  font-size: 12px;
+  opacity: 0.6;
+}
+
 .History .itemContainer {
     min-height: 140px;
     width: calc(100% - 20px);
+}
+.History .itemContainer .foodList {
+  margin: 45px 0 !important;
 }
 
 .History .categories {
