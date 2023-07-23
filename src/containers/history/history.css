@@ -48,3 +48,7 @@
 .History .prettyPhrase {
     text-align: center;
 }
+.History .categories .kCal {
+  font-style: italic;
+  opacity: 0.8;
+}

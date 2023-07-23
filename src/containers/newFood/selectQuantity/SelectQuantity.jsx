@@ -1,9 +1,9 @@
-import { IconButton } from '@mui/material';
+import { IconButton, Typography } from '@mui/material';
 import { RemoveCircleOutline as Remove, AddCircleOutline as Add } from '@mui/icons-material';
 
 import { CATEGORIES } from '../../../constants/categories';
 
-import CaloriesItem from "../../../components/CaloriesItem/CaloriesItem"
+import CaloriesItemList from "../../../components/CaloriesItemList/CaloriesItemList"
 
 import './selectQuantity.css'
 
@@ -40,6 +40,9 @@ const SelectQuantity = ({
 
   return (
     <div className="SelectQuantityContainer">
+      <Typography variant="h4" className="title">
+        Según ADA:
+      </Typography>
       {CATEGORIES.map((categorie) => 
         <Categorie 
           add={add} 
@@ -51,7 +54,13 @@ const SelectQuantity = ({
           currentFood={currentFood}
         />
       )}
-      <CaloriesItem />
+      <br />
+      <hr />
+      <Typography variant="h4" className="title">
+        A tu gusto:
+      </Typography>
+      <CaloriesItemList add={add} />
+      <br />
     </div>
   );
 }

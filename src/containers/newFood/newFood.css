@@ -1,107 +1,135 @@
 .NewFood {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    font-weight: 400;
-    color: white;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: white;
 }
 
 .NewFood .NewFoodContainerSteps {
-    margin-top: 100px;
-    width: 100%;
-    height: 100%;
+  margin-top: 100px;
+  width: 100%;
+  height: 100%;
 }
 
 .NewFood .NewFoodHeader {
-    position: absolute;
-    top: 20px;
-    left: 60px;
-    width: calc(100% - 60px);
+  position: absolute;
+  top: 20px;
+  left: 60px;
+  width: calc(100% - 60px);
 }
 .NewFood .NewFoodHeader .title {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .NewFood .NewFoodFooter {
-    width: 100%;
-    position: absolute;
-    bottom: 10px;
-    left: 0;
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  left: 0;
 }
 
 .NewFood .NewFoodFooter .actionButtons {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .NewFood .NewFoodFooter .actionButtons .AboutStep {
-    width: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .NewFood .categories {
-    height: 100%;
-    width: 100%;
-    padding-top: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin-left: 30px;
+  height: 100%;
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 30px;
+}
+
+.NewFood .categories {
+  height: 100%;
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 30px;
 }
 
 .NewFood .categorieContainer {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
 }
 
 .NewFood .user {
-    margin: 30px 0 10px;
+  margin: 30px 0 10px;
 }
 
 .NewFood .moreOptions {
-    margin: 10px 0 0;
+  margin: 10px 0 0;
 }
 
 .NewFood .moreOptions .foodTimeButton {
-    font-size: 0.8rem !important;
-    transition: all 0.3s ease both;
+  font-size: 0.8rem !important;
+  transition: all 0.3s ease both;
 }
 
 .NewFood .moreOptions .foodTimeButton.selected {
-    color: #1D3752 !important;
-    background: white;
-    font-weight: 600;
-    transition: all 0.3s ease both;
+  color: #1D3752 !important;
+  background: white;
+  font-weight: 600;
+  transition: all 0.3s ease both;
 }
 
 .categorieContainer .nameContainer .name{
-    display: block;
+  display: block;
 }
 
 .categorieContainer .avalaible{
-    color: grey;
+  color: grey;
 }
 
 .categorieContainer .buttons {
-    width: 50%;
-    margin-top: 8px;
-    display: flex;
-    justify-content: space-evenly;
+  width: 50%;
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .categorieContainer .remove {
-    color: pink;
+  color: pink;
 }
 
 .avalaible {
-    font-size: 14px;
+  font-size: 14px;
+}
+
+.actions {
+  margin-bottom: 20px;
+}
+
+.actions, .actionButtons {
+  width: 100%;
+  font-size: 1.3rem;
+}
+
+.actionButtons {
+  width: calc(100% - 40px);
+  margin: 0 20px;
+}
+
+.actionButtons .MuiButton-root {
+  width: 100%;
 }

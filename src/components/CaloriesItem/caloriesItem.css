@@ -1,3 +1,8 @@
-.CaloriesItem {
-    
+.CaloriesItem .AddButton {
+  background-color: rgba(200,200,200,0.1);
+  margin-top: 7px;
+}
+
+.CaloriesItem .AddButton.Mui-disabled {
+  opacity: 0.2;
 }

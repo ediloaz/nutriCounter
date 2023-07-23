@@ -1,19 +1,23 @@
 import { useEffect, useState } from 'react'
 
-import { Button, ButtonGroup, LinearProgress } from '@mui/material';
+import { LinearProgress } from '@mui/material';
 
 import BackButton from "../../components/BackButton/BackButton"
 
-import { CATEGORIES } from '../../constants/categories';
+import { CATEGORIES } from '../../constants/categories'
+import { calcCategoryCalc } from '../../helpers/categories';
 
 import './summary.css'
 
-const Categorie = ({ name, planned, currentDaily }) => {
+const Categorie = ({ id, name, planned, currentDaily }) => {
   const allowed = planned - currentDaily
   return (
     <div className="categorieContainer">
       <span>{name}</span>
-      <span className="avalaible">Disponible {allowed} de {planned}</span>
+      <span className="avalaible"><b>Disponible {allowed} de {planned}</b>
+      <br />
+      {currentDaily > 0 && `(Has comido ${currentDaily} ${ currentDaily === 1 ? ' Porción' : ' Porciones'})`}</span>
+      <span className="kCal">Calorías consumidas: {calcCategoryCalc(id, currentDaily)}</span>
       <LinearProgress className="LinearProgress" variant="determinate" value={(allowed * 100) / planned} />
     </div>
   )
@@ -57,11 +61,6 @@ const Summary = ({
           />
           )}
       </div>
-      {/* <div className="actions">
-      <ButtonGroup className="actionButtons" size="large" aria-label="large button group">
-        <Button className="addButton" onClick={() => changeScreen('history')}>Historial</Button>
-      </ButtonGroup>
-      </div> */}
     </div>
   );
 }

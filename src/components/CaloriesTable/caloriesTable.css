@@ -1,0 +1,4 @@
+.CaloriesTableContainer {
+  width: calc(100% - 20px) !important;
+  margin: 0 10px;
+}

@@ -15,7 +15,7 @@ import {
 
 import BackButton from "../../components/BackButton/BackButton";
 
-import { getCategoryNameById } from "../../helpers/categories";
+import { getCategoryNameById, calcCategoryCalc } from "../../helpers/categories";
 import { FOOD_TIMES } from "../../constants/foodTimes";
 
 import "./history.css";
@@ -34,17 +34,18 @@ const FLAT_COLORS = [
 const _parseTimeToMoment = (timeString) => moment(timeString, "h:mm a");
 
 const HistoryTimelineItem = ({
-  flatColor,
-  nextFlatColor,
   odd,
   hour,
-  foodTime,
-  categories,
   isFinal,
+  foodTime,
+  flatColor,
+  categories,
+  customFoods,
+  nextFlatColor,
 }) => {
   const topLineColor = flatColor;
   const bottomLineColor = nextFlatColor;
-
+  
   return (
     <TimelineItem className="itemContainer">
       <TimelineOppositeContent sx={{ py: "12px", px: 2, alignSelf: "center" }}>
@@ -72,10 +73,24 @@ const HistoryTimelineItem = ({
             (category) =>
               Boolean(categories?.[category]) && (
                 <span className="category">
-                  {getCategoryNameById(category)}: {categories?.[category]}
+                  {getCategoryNameById(category)}:
+                  <br />
+                  {categories?.[category]} {categories?.[category] === 1 ? ' Porción ' : ' Porciones '}
+                  (<span className="kCal">{calcCategoryCalc(category, categories?.[category])} kCal</span>)
+                  <hr style={{opacity: 0.2}} />
                 </span>
               )
           )}
+          {customFoods?.length && (
+            <span className="category">
+              🥡 Personalizada:
+            </span>
+          )}
+          {customFoods?.map((customFood) => (
+            <span className="category">
+              {customFood?.name}: <span className="kCal">{customFood?.cal} kCal</span>
+            </span>
+          ))}
         </div>
       </TimelineContent>
     </TimelineItem>
@@ -130,10 +145,11 @@ const History = ({ plann, daily, getDaily, getPlanns, changeScreen }) => {
 
             return (
               <HistoryTimelineItem
+                odd={i % 2}
                 key={item?.hour}
                 hour={item?.hour}
+                customFoods={item?.customFoods}
                 foodTime={item?.foodTime}
-                odd={i % 2}
                 categories={{
                   protein: item?.protein,
                   carb: item?.carb,

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { sumBy, get } from 'lodash'
 
 import Grid from "@mui/material/Unstable_Grid2"
 import { Button, Typography, Paper, Link } from "@mui/material"
@@ -23,14 +24,25 @@ const CardAction = ({ emoji, title, onClick }) => {
   )
 }
 
+const _getCustomFoodCalories = (array) => {
+  const totalCalories = sumBy(array, (item) => {
+    const customFoods = get(item, "customFoods", []);
+    return sumBy(customFoods, (food) => parseInt(food.cal));
+  });
+
+  return totalCalories;
+};
+
 const SumCal = (currentCal) => {
+  
   return parseInt(
     currentCal?.protein * CATEGORIES_OBJECT?.protein?.kcal +
       currentCal?.carb * CATEGORIES_OBJECT?.carb?.kcal +
       currentCal?.dairy * CATEGORIES_OBJECT?.dairy?.kcal +
       currentCal?.fat * CATEGORIES_OBJECT?.fat?.kcal +
       currentCal?.fruit * CATEGORIES_OBJECT?.fruit?.kcal +
-      currentCal?.vegetable * CATEGORIES_OBJECT?.vegetable?.kcal
+      currentCal?.vegetable * CATEGORIES_OBJECT?.vegetable?.kcal +
+      _getCustomFoodCalories(currentCal?.history)
   )
 }
 

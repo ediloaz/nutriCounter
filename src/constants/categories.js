@@ -35,3 +35,5 @@ export const CATEGORIES_OBJECT = CATEGORIES.reduce((obj, category) => {
   obj[category.id] = category;
   return obj;
 }, {});
+
+export const CUSTOM_FOODS_ID = 'customFoods'

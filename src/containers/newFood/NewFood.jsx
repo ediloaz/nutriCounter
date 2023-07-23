@@ -90,7 +90,13 @@ const NewFood = ({
 
   const userData = USERS?.[user]
 
-  const add = (id) => setCurrentFood({...currentFood, [id]: (currentFood?.[id] || 0) + 0.5})
+  const add = (id, value = null) => {
+    if (value) {
+      setCurrentFood({ ...currentFood, [id]: value })
+    } else {
+      setCurrentFood({ ...currentFood, [id]: (currentFood?.[id] || 0) + 0.5 })
+    }
+  }
   const remove = (id) => setCurrentFood({...currentFood, [id]: (currentFood?.[id] || 0) - 0.5})
 
   useEffect(() => {
@@ -115,6 +121,7 @@ const NewFood = ({
     })
 
     const newCurrent = {
+      customFoods: [],
       ...currentFood,
       foodTime,
       hour: foodHour,
@@ -132,7 +139,7 @@ const NewFood = ({
   const PreviousStep = () => setStep(step - 1)
 
   return (
-    <div className="NewFood">
+    <div className={`NewFood step${step}`}>
       <div className="NewFoodHeader">
         <BackButton changeScreen={changeScreen} screen="main" disabled={step>1} />
         <Typography className='title' textAlign='center' >
