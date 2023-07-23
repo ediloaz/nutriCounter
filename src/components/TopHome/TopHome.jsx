@@ -8,7 +8,7 @@ import { getBottomBackground } from '../../helpers/images'
 import "./topHome.css"
 
 function _capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  return string?.charAt(0).toUpperCase() + string?.slice(1) || "";
 }
 
 const TopHome = ({ user }) => {
