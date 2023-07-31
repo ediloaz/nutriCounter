@@ -220,7 +220,7 @@ const NewFood = ({
 
   const onChangeFoodTime = (id) => {
     setFoodTime(id)
-    if (foodTime === null) handleScroll('dividerStep2')
+    setTimeout(() => handleScroll('dividerStep2'), 300)    
   }
 
   const onChangeFoodHour = (value) => setFoodHour(value);

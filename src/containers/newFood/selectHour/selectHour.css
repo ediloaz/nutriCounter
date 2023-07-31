@@ -3,6 +3,15 @@
 }
 
 .NewFood .SelectHourContainer .MuiDialogActions-root,
-.NewFood .SelectHourContainer .MuiPickersArrowSwitcher-root {
+.NewFood .SelectHourContainer .MuiPickersArrowSwitcher-root,
+.NewFood .SelectHourContainer .MuiTypography-root.MuiTypography-overline {
     display: none;
+}
+
+.NewFood .SelectHourContainer .MuiTypography-root.MuiTimePickerToolbar-ampmLabel {
+  opacity: 0.5;
+}
+
+.NewFood .SelectHourContainer .MuiTypography-root.MuiTimePickerToolbar-ampmLabel.Mui-selected {
+  opacity: 1;
 }

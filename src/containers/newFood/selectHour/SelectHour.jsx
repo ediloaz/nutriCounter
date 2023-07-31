@@ -10,7 +10,6 @@ const SelectHour = ({
   return (
     <div className="SelectHourContainer">
       <StaticTimePicker
-        label="asd"
         defaultValue={moment(new Date())}
         onChange={onChangeFoodHour}
       />
