@@ -1,0 +1,39 @@
+.AddWater {
+  background-color: rgb(236, 243, 255);
+  width: calc(100% - 30px);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: black;
+  padding: 100px 15px 0;
+}
+
+
+.AddWater .Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0,0,0,0.2);
+  height: 75px;
+  z-index: 2;
+  border-radius: 0 0 40px 0;
+}
+
+.AddWater .Header::after {
+  display: block;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 75px;
+  left: -10px;
+  content: '';
+  background: rgba(0,0,0,0.2);
+  rotate: scaleX(-1);
+  transform: rotateY(180deg);
+  clip-path: polygon(40px 0px, 40px 40px, 39px 31.11180558268441px, 38px 27.510004003203203px, 37px 24.801315846429336px, 36px 22.564404225837304px, 35px 20.635083268962916px, 34px 18.928692494294523px, 33px 17.39469088908537px, 32px 16px, 31px 14.721550680470923px, 30px 13.542486889354095px, 29px 12.45004537208818px, 28px 11.434286285828598px, 27px 10.487290873252586px, 26px 9.602631692858672px, 25px 8.77501000800801px, 24px 8px, 23px 7.273863656092857px, 22px 6.593413823019866px, 21px 5.955910938901596px, 20px 5.358983848622451px, 19px 4.800568186403915px, 18px 4.2788578010165px, 17px 3.7922660195366547px, 16px 3.3393944403532814px, 15px 2.919007564521685px, 14px 2.5300120096096137px, 13px 2.1714393612445235px, 12px 1.8424319433221754px, 11px 1.5422309539411785px, 10px 1.2701665379258316px, 9px 1.0256494601898467px, 8px 0.8081641154691539px, 7px 0.6172626649695658px, 6px 0.4525601334296212px, 5px 0.3137303340311419px, 4px 0.20050251573520228px, 3px 0.11265864964173744px, 2px 0.05003128912364474px, 1px 0.012501953735586824px, 0px 0px);
+}

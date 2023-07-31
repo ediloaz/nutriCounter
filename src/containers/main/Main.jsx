@@ -100,7 +100,7 @@ const Main = ({ user, changeScreen, daily, plann, getPlanns, getDaily }) => {
       id: "addWater",
       emoji: "💦",
       title: "Agregar agua",
-      onClick: () => alert("Pronto, mi amoris. No comas ansias!"),
+      onClick: () => changeScreen("addWater"),
     },
   ]
 
