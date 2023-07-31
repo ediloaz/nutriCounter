@@ -186,11 +186,6 @@ const NewFood = ({
 
   const userData = USERS?.[user];
 
-  
-  // eslint-disable-next-line no-console
-  console.log('	🎮 currentFood', currentFood)
-  
-
   const add = (id, value = null) => {
     if (value) {
       setCurrentFood({ ...currentFood, [id]: value });
@@ -213,6 +208,7 @@ const NewFood = ({
       ...currentFood,
       foodTime,
       hour: foodHour,
+      calories: _totalCaloriesByNewFood(currentFood),
     };
 
     addNewFood({
