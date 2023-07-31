@@ -11,19 +11,22 @@ const Categorie = ({ id, name, allowed, currentFood, remove, add }) => {
   const disabledRemove = false && currentFood?.[id] <= 0
   const disabledAdd = false && currentFood?.[id] >= allowed
   const currentQuantity = currentFood?.[id] ?? '0'
+  const isEmpty = currentQuantity === 0
 
   return (
-    <div className="categorieContainer">
+    <div className={`categorieContainer ${isEmpty ? 'empty' : ''}`}>
       <div className="nameContainer">
         <span className="name">{name}: <i>{currentQuantity}</i></span>
         <span className="avalaible">Disponibles: {isNaN(allowed) ? '' : allowed ?? ''} </span>
       </div>
       <div className="buttons">
-      <IconButton disabled={disabledRemove} aria-label="delete" size="large">
-        <Remove className="remove" onClick={ () => remove(id) } fontSize='large' />
-      </IconButton>
-      <IconButton disabled={disabledAdd} aria-label="add" size="large">
-        <Add onClick={ () => add(id) }  disabled={disabledAdd} fontSize='large' />
+        {!isEmpty && 
+        <IconButton disabled={disabledRemove} aria-label="delete" size="medium">
+          <Remove className="remove" onClick={ () => remove(id) } fontSize='medium' />
+        </IconButton>
+        }
+      <IconButton disabled={disabledAdd} aria-label="add" size="medium">
+        <Add onClick={ () => add(id) }  disabled={disabledAdd} fontSize='medium' />
       </IconButton>
       </div>
     </div>
@@ -40,8 +43,8 @@ const SelectQuantity = ({
 
   return (
     <div className="SelectQuantityContainer">
-      <Typography variant="h4" className="title">
-        Según ADA:
+      <Typography variant="h5" className="title">
+        Método ADA:
       </Typography>
       {CATEGORIES.map((categorie) => 
         <Categorie 
@@ -55,9 +58,8 @@ const SelectQuantity = ({
         />
       )}
       <br />
-      <hr />
-      <Typography variant="h4" className="title">
-        A tu gusto:
+      <Typography variant="h5" className="title">
+        Método kCal
       </Typography>
       <CaloriesItemList add={add} />
       <br />

@@ -239,7 +239,7 @@ const EnhancedTable = ({list, onDelete}) => {
 
   return (
     <Box sx={{ width: '100%' }} className="CaloriesTableContainer">
-      <Paper sx={{ width: '100%', mb: 2 }}>
+      <Paper sx={{ width: '100%', mb: 2, marginBottom: 0 }}>
         <EnhancedTableToolbar numSelected={selected.length} onDelete={onDelete} selected={selected} />
         <TableContainer>
           <Table

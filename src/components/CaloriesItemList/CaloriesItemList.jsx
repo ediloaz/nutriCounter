@@ -8,6 +8,7 @@ import CaloriesItem from "../CaloriesItem/CaloriesItem"
 import CaloriesTable from "../CaloriesTable/CaloriesTable"
 
 import "./caloriesItemList.css"
+import { Typography } from '@mui/material';
 
 const _addOrUpdateItem = (list, newItem) => {
   const index = findIndex(list, { name: newItem.name });
@@ -44,6 +45,7 @@ const CaloriesItemList = ({ add }) => {
         <CaloriesItem onAdd={onAdd} />
       </Paper>
       <CaloriesTable list={list} onDelete={onDelete} />
+      <Typography variant='caption' className='deleteItems'>* Selecciona para eliminar</Typography>
     </>
   )
 }

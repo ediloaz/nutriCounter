@@ -92,12 +92,12 @@ const HistoryTimelineItem = ({
                 </span>
               )
           )}
-          {customFoods?.length && (
+          {customFoods?.length > 0 && (
             <span className="category">
               🥡 Personalizada:
             </span>
           )}
-          {customFoods?.map((customFood) => (
+          {customFoods?.length > 0 && customFoods?.map((customFood) => (
             <span className="category">
               {customFood?.name}: <span className="kCal">{customFood?.cal} kCal</span>
             </span>

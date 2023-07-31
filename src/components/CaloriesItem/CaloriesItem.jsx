@@ -30,7 +30,7 @@ const CaloriesItem = ({ key, onAdd }) => {
 
   return (
     <Grid container spacing={2} className="CaloriesItem">
-      <Grid xs={5}>
+      <Grid xs={12}>
         <Autocomplete
           id={`calories-item-label-${key}`}
           freeSolo
@@ -39,7 +39,7 @@ const CaloriesItem = ({ key, onAdd }) => {
           onInputChange={(event) => setName(event.target?.value)}
         />
       </Grid>
-      <Grid xs={5}>
+      <Grid xs={8}>
         <TextField
           value={kCal}
           label="Cantidad"
@@ -56,9 +56,9 @@ const CaloriesItem = ({ key, onAdd }) => {
           }}
         />
       </Grid>
-      <Grid xs={2}>
+      <Grid xs={4}>
         <IconButton disabled={!(name && kCal)} className="AddButton" aria-label="add" onClick={_onAdd}>
-          <AddIcon />
+          <AddIcon /> Agregar
         </IconButton>
       </Grid>
     </Grid>

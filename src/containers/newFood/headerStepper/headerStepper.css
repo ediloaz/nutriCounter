@@ -1,0 +1,25 @@
+.HeaderStepper {
+  width: calc(100% - 65px);
+  margin: 14px auto 0;
+}
+
+.HeaderStepper .MuiStepLabel-labelContainer,
+.HeaderStepper .MuiStepLabel-labelContainer span {
+  color: white;
+  margin-top: 2px;
+  font-size: 10px;
+}
+
+.HeaderStepper .Icon {
+  width: 30px;
+  height: 30px;
+}
+
+.HeaderStepper .Icon svg {
+  font-size: 20px;
+}
+
+.HeaderStepper .MuiStepConnector-root {
+  left: calc(-50% + 10px);
+  right: calc(50% + 10px);
+}

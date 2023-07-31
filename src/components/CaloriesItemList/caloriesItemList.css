@@ -1,7 +1,11 @@
 .MuiPaper-root.CaloriesItemAdder {
   width: calc(100% - 40px) !important;
-  height: 56px;
+  height: 148px;
   margin: 0 10px;
   padding: 10px;
-  margin-bottom: 2px !important;
+  margin-bottom: -5px !important;
+}
+
+.deleteItems {
+  font-size: 12px !important;
 }

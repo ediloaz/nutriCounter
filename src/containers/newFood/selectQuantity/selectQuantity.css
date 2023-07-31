@@ -15,10 +15,14 @@
 
 .NewFood .categorieContainer {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 100px;
     align-items: center;
-    flex-direction: row;
+    margin-bottom: 10px;
+}
+
+.NewFood .categorieContainer.empty {
+  opacity: 0.5;
 }
 
 .NewFood .user {
@@ -40,6 +44,10 @@
     font-weight: 600;
     transition: all 0.3s ease both;
 }
+.categorieContainer .nameContainer {
+  display: flex;
+  flex-direction: column;
+}
 
 .categorieContainer .nameContainer .name{
     display: block;
@@ -47,21 +55,19 @@
 
 .categorieContainer .avalaible{
     color: grey;
+    font-size: 14px;
+    margin-left: 30px;
 }
 
 .categorieContainer .buttons {
-    width: 50%;
+    width: 100px;
     margin-top: 8px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
 }
 
 .categorieContainer .remove {
     color: pink;
-}
-
-.avalaible {
-    font-size: 14px;
 }
 
 .actions {
