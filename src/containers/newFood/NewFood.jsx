@@ -165,7 +165,6 @@ const _totalCaloriesByNewFood = (currentFood) => {
   return totalCaloriesCategories + totalCaloriesCustomFoods;
 }
 
-
 const NewFood = ({
   user,
   plann,
