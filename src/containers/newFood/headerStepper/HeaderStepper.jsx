@@ -1,6 +1,5 @@
 import { styled } from "@mui/material/styles"
 import { Stepper, Step, StepLabel } from "@mui/material"
-import { Settings, GroupAdd, VideoLabel } from "@mui/icons-material"
 import StepConnector, {
   stepConnectorClasses,
 } from "@mui/material/StepConnector"
