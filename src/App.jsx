@@ -8,6 +8,7 @@ import Summary from './containers/summary/Summary'
 import AddWater from './containers/addWater/AddWater'
 import History from './containers/history/History'
 import ChangeUser from './containers/changeUser/ChangeUser'
+import HouseFinances from './containers/houseFinances/HouseFinances'
 
 import { getBottomBackground } from './helpers/images'
 
@@ -24,6 +25,7 @@ const AppContent = ({ screen, props }) => {
   else if (screen === 'changeUser') return <ChangeUser {...props} />
   else if (screen === 'history') return <History {...props} />
   else if (screen === 'addWater') return <AddWater {...props} />
+  else if (screen === 'houseFinances') return <HouseFinances {...props} />
   return <Main {...props} />
 }
 

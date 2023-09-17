@@ -102,6 +102,12 @@ const Main = ({ user, changeScreen, daily, plann, getPlanns, getDaily }) => {
       title: "Agregar agua",
       onClick: () => changeScreen("addWater"),
     },
+    {
+      id: "houseFinances",
+      emoji: "💰",
+      title: "Finanzas de casa",
+      onClick: () => changeScreen("houseFinances"),
+    },
   ]
 
   return (

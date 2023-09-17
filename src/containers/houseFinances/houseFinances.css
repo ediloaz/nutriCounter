@@ -1,0 +1,43 @@
+.HouseFinances {
+  background-color: white;
+  width: calc(100% - 30px);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: black;
+  padding: 100px 15px 0;
+}
+
+.HouseFinances .Body {
+    width: 100%;
+}
+
+.HouseFinances .subTitle {
+  font-size: 24px;
+  padding: 15px 0 20px;
+}
+
+.HouseFinances .MuiPaper-root {
+  padding: 5px;
+  width: calc(100% - 10px);
+}
+
+.HouseFinances .FormToAddContainer {
+  height: 340px;
+}
+
+.HouseFinances .AddButton {
+  width: 100%;
+  background-color: rgba(200,200,200,0.1);
+  margin-top: 7px;
+  font-size: 12px !important;
+  border-radius: 4px;
+}
+
+.HouseFinances .AddButton.Mui-disabled {
+  opacity: 0.2;
+}
