@@ -9,7 +9,11 @@
 /coverage
 
 # production
-# /build
+/build
+*.tgz
+
+# personal data (never versioned)
+/public/assets/profiles/
 
 # misc
 .DS_Store

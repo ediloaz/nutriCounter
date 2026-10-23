@@ -8,8 +8,6 @@ import { getBottomBackground } from "helpers/images"
 
 import "./topHome.css"
 
-const CAT_PROFILE_PICTURE = 'cat.png'
-
 function _capitalizeFirstLetter(string) {
   return string?.charAt(0).toUpperCase() + string?.slice(1) || ""
 }
@@ -24,10 +22,9 @@ const TopHome = ({ user }) => {
         className={`TopContainer`}
         style={{ background: bottomBG?.darkColor }}
       >
-        <Avatar
-          className="Avatar"
-          src={`${process.env.PUBLIC_URL}/assets/profiles/${userData?.profilePicture || CAT_PROFILE_PICTURE}`}
-        />
+        <Avatar className="Avatar">
+          {(userData?.name || user)?.charAt(0).toUpperCase()}
+        </Avatar>
         <Typography variant="h4" component="h4">
           Hola, {_capitalizeFirstLetter(user)}
         </Typography>
